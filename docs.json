@@ -82,7 +82,7 @@
   "navbar": {
     "links": [
       {
-        "type": "button"
+        "type": "button",
         "label": "Support Server",
         "href": "https://discord.gg/bumblebee"
       }
