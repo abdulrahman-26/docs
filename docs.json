@@ -4,8 +4,8 @@
   "name": "Bumblebee",
   "colors": {
     "primary": "#FBC02D",
-    "light": "#FDD835",
-    "dark": "#F9A825"
+    "light": "#07C983",
+    "dark": "#15803D"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -80,12 +80,13 @@
     "dark": "/logo/dark.svg"
   },
   "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "https://discord.gg/bumblebee"
+      }
+    ],
     "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    },
-    "secondary": {
       "type": "button",
       "label": "Invite",
       "href": "https://discord.gg/bumblebee"
