@@ -1,9 +1,9 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Bumblebee",
   "colors": {
-    "primary": "#16A34A",
+    "primary": "#FBC02D",
     "light": "#07C983",
     "dark": "#15803D"
   },
@@ -82,8 +82,9 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "type": "button"
+        "label": "Support Server",
+        "href": "https://discord.gg/bumblebee"
       }
     ],
     "primary": {
