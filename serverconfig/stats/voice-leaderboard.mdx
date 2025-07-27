@@ -1,0 +1,232 @@
+---
+title: "Voice Leaderboard"
+description: "Track and display server voice activity with customizable leaderboards and manual voice time management for members."
+---
+
+## Voice Leaderboard Overview
+
+The voice leaderboard system tracks member activity based on time spent in voice channels. It provides visual leaderboards and allows administrators to manually adjust voice time for accurate tracking and moderation purposes.
+
+### Key Features
+
+<Steps>
+  <Step title="Voice Time Tracking">
+    Automatically tracks time members spend in voice channels across the server
+  </Step>
+  <Step title="Visual Leaderboards">
+    Display attractive leaderboard frames showing full stats
+  </Step>
+  <Step title="Manual Management">
+    Add, remove, or set specific voice time for individual users
+  </Step>
+  <Step title="Timeframe Options">
+    Track voice activity across different time periods (daily, weekly, monthly, all-time)
+  </Step>
+</Steps>
+
+## Viewing Leaderboards
+
+### Interactive Setup Guide
+
+Access the comprehensive leaderboard system guide with setup instructions.
+
+```Unspecified Example
+?leaderboard guide
+?lb guide
+```
+
+### Voice Leaderboard Display
+
+View the server's voice activity leaderboard with stylized frames.
+
+<CodeGroup>
+
+```Unspecified Example
+?leaderboard voices
+?leaderboard voices @freycikkk
+?leaderboard voices 123456789012345678
+```
+
+
+```Unspecified Aliases
+?lb voices @freycikkk
+?lb v @freycikkk
+```
+
+</CodeGroup>
+
+<Frame>
+  <img
+    src="/images/voice-lb.png"
+    style={{ width:"100%" }}
+    className="mx-auto"
+    alt="Voice Leaderboard Frame"
+    title="Voice Leaderboard Display"
+  />
+</Frame>
+
+## Voice Time Management
+
+### Adding Voice Time
+
+Increase a user's voice time by a specified amount within a timeframe.
+
+<CodeGroup>
+
+```Unspecified Example
+/voices add (user) (number) (timeframe)
+```
+
+
+```Unspecified Syntax
+/voices add @freycikkk 120 weekly
+/voices add 123456789012345678 60 daily
+```
+
+
+```Aliases
+/v add @freycikkk 120 weekly
+/v add 123456789012345678 60 daily
+```
+
+</CodeGroup>
+
+### Removing Voice Time
+
+Decrease a user's voice time by a specified amount within a timeframe.
+
+<CodeGroup>
+
+```Unspecified Example
+/voices remove (user) (number) (timeframe)
+```
+
+
+```Unspecified Syntax
+/voices remove @freycikkk 30 monthly
+/voices remove 123456789012345678 15 daily
+```
+
+
+```Aliases
+/v remove @freycikkk 30 monthly
+/v remove 123456789012345678 15 daily
+```
+
+</CodeGroup>
+
+### Setting Voice Time
+
+Set a user's exact voice time for a specific timeframe.
+
+<CodeGroup>
+
+```Unspecified Example
+/voices set (user) (number) (timeframe)
+```
+
+
+```Unspecified Syntax
+/voices set @freycikkk 500 alltime
+/voices set 123456789012345678 0 weekly
+```
+
+
+```Aliases
+/v set @freycikkk 500 alltime
+/v set 123456789012345678 0 weekly
+```
+
+</CodeGroup>
+
+## Available Timeframes
+
+<CardGroup cols={2}>
+  <Card title="Daily">
+    Track voice time within the current day
+  </Card>
+  <Card title="Weekly">
+    Track voice time within the current week
+  </Card>
+  <Card title="Monthly">
+    Track voice time within the current month
+  </Card>
+  <Card title="All-time">
+    Track total voice time since tracking began
+  </Card>
+</CardGroup>
+
+## Time Format
+
+<Note>
+  Voice time is measured in minutes. When adding, removing, or setting voice time, use minute values (e.g., 60 for 1 hour, 120 for 2 hours).
+</Note>
+
+## Use Cases
+
+<CardGroup cols={2}>
+  <Card title="Voice Activity Rewards">
+    Recognize members who actively participate in voice chats and community calls
+  </Card>
+  <Card title="Community Engagement">
+    Track voice channel usage to understand community interaction patterns
+  </Card>
+  <Card title="Event Participation">
+    Monitor attendance for voice events, meetings, and community gatherings
+  </Card>
+  <Card title="Moderation Adjustments">
+    Correct voice time after removing users from inappropriate voice activities
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Voice time not tracking - Leaderboard not updating">
+    **Issue**: The voice leaderboard shows outdated information or doesn't track recent voice activity.
+
+    **Solutions**:
+
+    - Ensure the bot has permission to view voice channels
+    - Check if the bot can see voice state changes in server settings
+    - Verify the bot is online when users join/leave voice channels
+    - Test by joining a voice channel and checking if time updates
+    - Confirm voice tracking isn't disabled in bot settings
+  </Accordion>
+  <Accordion title="Cannot modify voice time - Permission errors">
+    **Issue**: Getting permission denied when trying to add, remove, or set voice time.
+
+    **Solutions**:
+
+    - Confirm you have administrator permissions or extra owner/admin status
+    - Verify the target user exists and is in the server
+    - Check if you're using the correct user mention or ID format
+    - Ensure the timeframe parameter is spelled correctly (daily/weekly/monthly/all-time)
+    - Try with a smaller number to test if there are value limits
+  </Accordion>
+  <Accordion title="Leaderboard frame not displaying - Visual issues">
+    **Issue**: The voice leaderboard command returns text instead of the styled frame image.
+
+    **Solutions**:
+
+    - Ensure the bot has "Attach Files" permission in the channel
+    - Check if the bot has "Embed Links" permission for proper display
+    - Verify your internet connection for loading the leaderboard frame
+    - Try using the command in a different channel
+    - Check if there are any channel-specific restrictions on bot images
+  </Accordion>
+  <Accordion title="AFK voice time counting - Inactive users getting time">
+    **Issue**: Users who are AFK or muted in voice channels are still accumulating voice time.
+
+    **Solutions**:
+
+    - This is normal behavior - voice time tracks presence, not activity
+    - Use manual adjustments to correct time if needed for fairness
+    - Consider setting server AFK timeouts to minimize inactive tracking
+    - Review voice time manually for competitions or rewards
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  Manual voice time adjustments affect leaderboard rankings and statistics. Use these commands responsibly and only when necessary for moderation or data correction purposes.
+</Warning>

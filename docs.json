@@ -44,7 +44,7 @@
           },
           {
             "group": "Extras",
-            "icon": "message",
+            "icon": "plus",
             "pages": [
               "serverconfig/extras/extrapermissions",
               "serverconfig/extras/noprefix",

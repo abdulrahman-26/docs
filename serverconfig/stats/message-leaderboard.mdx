@@ -1,0 +1,220 @@
+---
+title: "Message Leaderboard"
+description: "Track and display server message activity with customizable leaderboards and manual message count management for members."
+---
+
+## Message Leaderboard Overview
+
+The message leaderboard system tracks member activity based on messages sent in your server. It provides visual leaderboards and allows administrators to manually adjust message counts for accurate tracking and moderation purposes.
+
+### Key Features
+
+<Steps>
+  <Step title="Activity Tracking">
+    Automatically tracks messages sent by members across all server channels
+  </Step>
+  <Step title="Visual Leaderboards">
+    Display attractive leaderboard frames showing all stats
+  </Step>
+  <Step title="Manual Management">
+    Add, remove, or set specific message counts for individual users
+  </Step>
+  <Step title="Timeframe Options">
+    Track activity across different time periods (daily, weekly, monthly, all-time)
+  </Step>
+</Steps>
+
+## Viewing Leaderboards
+
+### Interactive Setup Guide
+
+Access the comprehensive leaderboard system guide with setup instructions.
+
+```Unspecified Example
+?leaderboard guide
+?lb guide
+```
+
+### Message Leaderboard Display
+
+View the server's message activity leaderboard with stylized frames.
+
+<CodeGroup>
+
+```Unspecified Example
+?leaderboard messages
+?leaderboard messages @freycikkk
+?leaderboard messages 123456789012345678
+```
+
+
+```Unspecified Aliases
+?lb messages @freycikkk
+?lb m @freycikkk
+```
+
+</CodeGroup>
+
+<Frame>
+  <img
+    src="/images/messages-lb.png"
+    style={{ width:"100%" }}
+    className="mx-auto"
+    alt="Message Leaderboard Frame"
+    title="Message Leaderboard Display"
+  />
+</Frame>
+
+## Message Count Management
+
+### Adding Messages
+
+Increase a user's message count by a specified amount within a timeframe.
+
+<CodeGroup>
+
+```Unspecified Example
+/messages add (user) (number) (timeframe)
+```
+
+
+```Unspecified Syntax
+/messages add @freycikkk 100 weekly
+/messages add 123456789012345678 50 daily
+```
+
+
+```Aliases
+/m add @freycikkk 100 weekly
+/m add 123456789012345678 50 daily
+```
+
+</CodeGroup>
+
+### Removing Messages
+
+Decrease a user's message count by a specified amount within a timeframe.
+
+<CodeGroup>
+
+```Unspecified Example
+/messages remove (user) (number) (timeframe)
+```
+
+
+```Unspecified Syntax
+/messages remove @freycikkk 25 monthly
+/messages remove 123456789012345678 10 daily
+```
+
+
+```Aliases
+/m remove @freycikkk 25 monthly
+/m remove 123456789012345678 10 daily
+```
+
+</CodeGroup>
+
+### Setting Message Count
+
+Set a user's exact message count for a specific timeframe.
+
+<CodeGroup>
+
+```Unspecified Example
+/messages set (user) (number) (timeframe)
+```
+
+
+```Unspecified Syntax
+/messages set @freycikkk 500 alltime
+/messages set 123456789012345678 0 weekly
+```
+
+
+```Aliases
+/m set @freycikkk 500 alltime
+/m set 123456789012345678 0 weekly
+```
+
+</CodeGroup>
+
+## Available Timeframes
+
+<CardGroup cols={2}>
+  <Card title="Daily">
+    Track messages sent within the current day
+  </Card>
+  <Card title="Weekly">
+    Track messages sent within the current week
+  </Card>
+  <Card title="Monthly">
+    Track messages sent within the current month
+  </Card>
+  <Card title="All-time">
+    Track total messages sent since tracking began
+  </Card>
+</CardGroup>
+
+## Use Cases
+
+<CardGroup cols={2}>
+  <Card title="Activity Rewards">
+    Recognize most active community members with rewards and recognition
+  </Card>
+  <Card title="Engagement Tracking">
+    Monitor server engagement levels and identify active periods
+  </Card>
+  <Card title="Moderation Adjustments">
+    Correct message counts after removing spam or inappropriate content
+  </Card>
+  <Card title="Event Competitions">
+    Host messaging competitions with accurate count management
+  </Card>
+</CardGroup>
+
+<Note>
+  Message counts are automatically tracked for all server members. Manual adjustments are typically used for moderation purposes or correcting data discrepancies.
+</Note>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Leaderboard not updating - Message counts not changing">
+    **Issue**: The message leaderboard displays outdated information or doesn't reflect recent activity.
+
+    **Solutions**:
+
+    - Check if the bot has permission to read messages in all channels
+    - Verify the bot is online and functioning properly
+    - Ensure messages aren't being sent in ignored channels
+    - Try viewing a different timeframe to see if tracking is working
+    - Test with a few messages and check if counts update
+  </Accordion>
+  <Accordion title="Cannot modify message counts - Permission errors">
+    **Issue**: Getting permission denied when trying to add, remove, or set message counts.
+
+    **Solutions**:
+
+    - Confirm you have administrator permissions or extra owner/admin status
+    - Verify the target user exists and is in the server
+    - Check if you're using the correct user mention or ID format
+    - Ensure the timeframe parameter is spelled correctly
+    - Try with a smaller number to test if there are value limits
+  </Accordion>
+  <Accordion title="Leaderboard frame not displaying - Visual issues">
+    **Issue**: The leaderboard command returns text instead of the styled frame image.
+
+    **Solutions**:
+
+    - Ensure the bot has "Attach Files" permission in the channel
+    - Check if the bot has "Embed Links" permission for proper display
+    - Verify your internet connection for loading the leaderboard frame
+    - Try using the command in a different channel
+    - Check if there are any channel-specific restrictions on bot images
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  Manual message count adjustments affect leaderboard rankings and statistics. Use these commands responsibly and only when necessary for moderation or data correction purposes.
+</Warning>
