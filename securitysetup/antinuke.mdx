@@ -1,0 +1,179 @@
+---
+title: "Antinuke"
+description: "Impose restrictions on moderators to prevent destructive behavior."
+---
+
+## Why use antinuke system?
+
+Having an antinuke system is crucial to stop moderators from misusing their powers. This security feature helps keep your server protected from any damaging activities.
+
+## How does antinuke works?
+
+The antinuke will set a limit on the number of actions a moderator can perform in a certain time frame. If the limit is exceeded, the moderator will be punished and a message will be sent to the owner.
+
+## Configuring the antinuke
+
+<Warning>
+  Discord recently implemented a new **mass ban** feature which can quickly ban **100\+ members**. It’s **HIGHLY** recommended to turn on this system to prevent staff from using this feature.
+</Warning>
+
+### Allowing users to configure the antinuke
+
+Initially, only the server **owner** can configure the antinuke. However, you can allow other users to configure the antinuke by making them **Extra Owner** or **Extra Admin**.
+
+<Warning>
+  This is a dangerous permission and will allow the user to entirely alter the antinuke configuration.
+</Warning>
+
+### Quick Setup
+
+For a quick and simple antinuke setup with an easy interface, you can use this command.
+
+```Unspecified Example
+?antinuke iterface
+```
+
+### Enabling the antinuke
+
+You can enable antinuke system by using enable command.
+
+```Unsepcified Example
+?antinuke enable
+```
+
+## Disabling the antinuke
+
+You can disable the antinuke system by using disable command.
+
+```Unsepcified Example
+?antinuke disable
+```
+
+## Changing the punishment
+
+The punishment which will be applied to the moderator.
+**Available Punishments:**
+
+- Kick
+- Ban
+- Roles Removed \+ Timeout
+
+```Unspecified Example
+?antinuke punishment
+```
+
+### Viewing the antinuke configuration
+
+You can view the antinuke configurations by using show command.
+
+```Unspecified Example
+?antinuke show
+```
+
+## Exempting users from the antinuke
+
+You can exempt users from the selected or all antinuke events with the antinuke whitelist add command.
+
+<Warning>
+  This is a dangerous command and will allow the user to bypass the selected antinuke events.
+</Warning>
+
+<CodeGroup>
+
+```Unspecified Example
+?antinuke whitelist add (user)
+```
+
+
+```Unspecified Syntax
+?antinuke whitelist add @freycikkk
+```
+
+</CodeGroup>
+
+## Removing Exempted users from the antinuke
+
+You can remove the exempted users from specific or all antinuke events with the antinuke whitelist remove command.
+
+<CodeGroup>
+
+```Unspecified Example
+?antinuke whitelist remove (user)
+```
+
+
+```Unspecified Syntax
+?antinuke whitelist remove @freycikkk
+```
+
+</CodeGroup>
+
+## Viewing the exempted users
+
+You can view the expemted users by using whitelist show command.
+
+```Unspecified Example
+?antinuke whitelist show
+```
+
+## Removing all the exempted users
+
+You can remove all expemted users by using whitelist reset command.
+
+```Unspecified Example
+?antinuke whitelist reset
+```
+
+## Exempting roles from the antinuke
+
+You can exempt roles from the selected or all antinuke events with the antinuke role add command.
+
+<Warning>
+  This is a dangerous command and will allow the users of selected role to bypass the selected antinuke events.
+</Warning>
+
+<CodeGroup>
+
+```Unspecified Example
+?antinuke role add (role)
+```
+
+
+```Unspecified Syntax
+?antinuke role add @admin
+```
+
+</CodeGroup>
+
+## Removing Exempted roles from the antinuke
+
+You can remove the exempted roles from specific or all antinuke events with the antinuke role remove command.
+
+<CodeGroup>
+
+```Unspecified Example
+?antinuke role remove (role)
+```
+
+
+```Unspecified Syntax
+?antinuke role remove @admin
+```
+
+</CodeGroup>
+
+## Viewing the exempted roles
+
+You can view the expemted roles by using role show command.
+
+```Unspecified Example
+?antinuke role show
+```
+
+## Removing all the exempted users
+
+You can remove all expemted roles by using role reset command.
+
+```Unspecified Example
+?antinuke role reset
+```
