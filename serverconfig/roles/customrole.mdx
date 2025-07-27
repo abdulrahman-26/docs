@@ -1,0 +1,247 @@
+---
+title: "Custom Roles System"
+description: "The custom roles system allows you to create custom commands for role assignment. Set up shortcut commands that authorized users can use to toggle roles on/off for members, creating an efficient role management system with custom names and requirements."
+---
+
+## Custom Roles System Overview
+
+The custom roles system lets you create personalized commands for role management. Instead of using complex role assignment commands, you can create simple shortcuts like `vip @user` or `premium @member` that will automatically toggle roles on or off.
+
+### How It Works
+
+1. **Setup**: Create custom role commands with unique names
+2. **Usage**: Use `commandname @user` OR reply to a message with `commandname`
+3. **Toggle**: Adds role if user doesn't have it, removes if they do
+4. **Requirements**: Set requirement roles to control who can use commands
+
+## Custom Roles Configuration
+
+### Viewing Custom Roles Configuration
+
+Display all current custom role commands and their settings.
+
+```Unspecified Example
+/setup guide
+```
+
+### Creating Custom Role Commands
+
+Create a new custom role command with a unique name and associated role.
+
+<CodeGroup>
+
+```Unspecified Example
+/setup add (name) (role)
+```
+
+
+```Unspecified Syntax
+/setup add vip @VIP-Member
+```
+
+</CodeGroup>
+
+<Note>
+  After setup, authorized users can use: `vip @username` to toggle the VIP-Member role on/off for that user.
+</Note>
+
+<Warning>
+  Roles with dangerous permissions (**Kick, Ban, Manage Server, Administrator**) cannot be added. Be careful with reply method - **replying** with a command gives the role to whoever you replied to\!
+</Warning>
+
+### Removing Custom Role Commands
+
+Delete a custom role command by its name.
+
+<CodeGroup>
+
+```Unspecified Example
+/setup remove (name)
+```
+
+
+```Unspecified Syntax
+/setup remove vip
+```
+
+</CodeGroup>
+
+### Setting Requirement Roles
+
+Configure which role is required to use custom role commands. Only users with this role or Extra Owners can execute the custom commands.
+
+<CodeGroup>
+
+```Unspecified Example
+/setup reqrole (role)
+```
+
+
+```Unspecified Syntax
+/setup reqrole @Moderator
+```
+
+</CodeGroup>
+
+### Viewing Current Setup
+
+Display all active custom roles and requirement settings.
+
+```Unspecified Example
+/setup show
+```
+
+### Resetting Custom Roles System
+
+Remove all custom role commands and reset the requirement role settings.
+
+```Unspecified Example
+/setup reset
+```
+
+## Usage Examples
+
+### Basic Setup & Usage
+
+<CodeGroup>
+
+```Unspecified Setup
+/setup add vip @VIP-Member
+```
+
+
+```Unspecified Usage
+vip @john_doe
+```
+
+
+```Unspecified Reply Method
+Reply to someone's message with: vip
+```
+
+</CodeGroup>
+
+**Result**: Toggles VIP-Member role on/off
+
+### With Requirement Role
+
+<CodeGroup>
+
+```Unspecified Setup
+/setup reqrole @Staff
+/setup add premium @Premium-User
+```
+
+
+```Unspecified Usage
+premium @user
+```
+
+</CodeGroup>
+
+**Result**: Only @Staff members can use the premium command
+
+## Use Cases & Examples
+
+### Staff Management
+
+- **Command**: `staff @user` → **Role**: @Staff-Member
+- **Command**: `mod @user` → **Role**: @Moderator
+
+### Community Roles
+
+- **Command**: `artist @user` → **Role**: @Community-Artist
+- **Command**: `helper @user` → **Role**: @Community-Helper
+
+### Special Access
+
+- **Command**: `vip @user` → **Role**: @VIP-Access
+- **Command**: `beta @user` → **Role**: @Beta-Tester
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Custom commands not working - Commands not responding">
+    **Issue**: Custom role commands are not responding when used by authorized users.
+
+    **Solutions**:
+
+    - Verify the custom role command exists using `/setup show`
+    - Check if the user has the required role set by `/setup reqrole`
+    - Ensure the bot has "Manage Roles" permission in the server.
+    - Confirm the role name is spelled correctly.
+    - Test with a different user who has the requirement role
+  </Accordion>
+  <Accordion title="Permission denied - Users can't use custom commands">
+    **Issue**: Users are getting permission errors when trying to use custom role commands.
+
+    **Solutions**:
+
+    - Check if a requirement role is set using `/setup guide`
+    - Verify the user has the required role to use custom commands
+    - Ensure the requirement role hasn't been deleted or renamed
+    - Consider if the requirement role is too restrictive for your needs
+    - Test by temporarily removing the requirement role restriction
+  </Accordion>
+  <Accordion title="Role assignment failing - Custom commands run but roles don't change">
+    **Issue**: Custom commands execute but the target user's roles don't get modified.
+
+    **Solutions**:
+
+    - Verify the bot's role is positioned higher than the target role in hierarchy
+    - Check if the bot has "Manage Roles" permission
+    - Ensure the target role still exists and hasn't been deleted
+    - Confirm the target user can receive the role (not hitting role limits)
+    - Test the role assignment manually to isolate the issue
+  </Accordion>
+  <Accordion title="Toggle not working - Roles only being added, not removed">
+    **Issue**: Custom commands add roles but don't remove them when the user already has the role.
+
+    **Solutions**:
+
+    - Verify the bot can detect existing roles on the target user
+    - Check if multiple roles with similar names are causing confusion
+    - Ensure the bot has permission to remove roles from users
+    - Test the toggle functionality with a simple role first
+    - Confirm the role hierarchy allows the bot to remove the specific role
+  </Accordion>
+  <Accordion title="Command conflicts - Custom commands interfering with other bots">
+    **Issue**: Custom role commands are conflicting with other bot commands or systems.
+
+    **Solutions**:
+
+    - Choose unique command names that don't conflict with other bots
+    - Check if other bots are using the same command triggers
+    - Consider adding a prefix or unique identifier to your custom commands
+    - Review command priorities if multiple bots respond to the same trigger
+    - Test custom commands in a channel where other bots are restricted
+  </Accordion>
+  <Accordion title="Accidental role assignments - Wrong users getting roles through replies">
+    **Issue**: Users are accidentally getting roles when someone replies to their message with a custom command.
+
+    **Solutions**:
+
+    - Train authorized users to be careful when using reply-based role assignment
+    - Consider if the reply method is necessary for your server's workflow
+    - Use direct mentions (@user) instead of replies when precision is important
+    - Monitor role assignments and undo accidental assignments quickly
+    - Consider restricting custom role usage to specific channels to reduce accidents
+  </Accordion>
+  <Accordion title="Dangerous roles blocked - Can't add moderation roles to custom commands">
+    **Issue**: The system prevents adding roles with dangerous permissions to custom role commands.
+
+    **Solutions**:
+
+    - This is intentional security behavior - roles with kick, ban, manage server, or administrator permissions cannot be added
+    - Create separate roles without dangerous permissions for the custom role system
+    - Use Discord's built-in role management for roles requiring moderation permissions
+    - Consider creating "honorary" or "display" versions of staff roles without actual permissions and connect them together with our [Role Connection System](/serverconfig/roles/connectionrole)
+    - Contact administrators if you need moderation roles managed through different systems
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  Custom commands bypass normal permissions. Set requirement roles properly and be careful with the reply method - it gives roles to whoever you replied to\!
+</Warning>

@@ -1,0 +1,192 @@
+---
+title: "Autorole System"
+description: "The autorole system automatically assigns roles to new members when they join your server. Configure separate role sets for human users and bots with easy management commands and instant role assignment."
+---
+
+## Autorole System Setup
+
+### Quick Setup Interface
+
+For a quick and simple autorole setup with an easy interface, you can use this command to configure all settings at once.
+
+```Unspecified Example
+/autorole interface
+```
+
+### Viewing Autorole Configuration
+
+Display the current autorole configuration and all assigned roles for both humans and bots.
+
+```Unspecified Example
+/autorole guide
+```
+
+## Human User Autoroles
+
+### Adding Roles for Humans
+
+Assign roles that will be automatically given to human users when they join the server.
+
+<CodeGroup>
+
+```Unspecified Example
+/autorole humans add (role)
+```
+
+
+```Unspecified Syntax
+/autorole humans add @Member
+```
+
+</CodeGroup>
+
+### Removing Roles for Humans
+
+Remove a role from the human autorole list to stop it from being automatically assigned.
+
+<CodeGroup>
+
+```Unspecified Example
+/autorole humans remove (role)
+```
+
+
+```Unspecified Syntax
+/autorole humans remove @Member
+```
+
+</CodeGroup>
+
+### Viewing Human Autoroles
+
+List all roles currently set to be automatically assigned to human users.
+
+```Unspecified Example
+/autorole humans show
+```
+
+### Resetting Human Autoroles
+
+Remove all roles from the human autorole list at once.
+
+```Unspecified Example
+/autorole humans reset
+```
+
+## Bot Autoroles
+
+### Adding Roles for Bots
+
+Assign roles that will be automatically given to bots when they join the server.
+
+<CodeGroup>
+
+```Unspecified Example
+/autorole bots add (role)
+```
+
+
+```Unspecified Syntax
+/autorole bots add @Bot
+```
+
+</CodeGroup>
+
+### Removing Roles for Bots
+
+Remove a role from the bot autorole list to stop it from being automatically assigned.
+
+<CodeGroup>
+
+```Unspecified Example
+/autorole bots remove (role)
+```
+
+
+```Unspecified Syntax
+/autorole bots remove @Bot
+```
+
+</CodeGroup>
+
+### Viewing Bot Autoroles
+
+List all roles currently set to be automatically assigned to bots.
+
+```Unspecified Example
+/autorole bots show
+```
+
+### Resetting Bot Autoroles
+
+Remove all roles from the bot autorole list at once.
+
+```Unspecified Example
+/autorole bots reset
+```
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Roles not being assigned - New members aren't getting roles">
+    **Issue**: Autoroles are not being given to new members when they join the server.
+
+    **Solutions**:
+
+    - Verify the bot has "Manage Roles" permission in the server
+    - Ensure the bot's role is positioned higher than the autoroles in the role hierarchy
+    - Check if the autorole system is properly configured using `/autorole guide`
+    - Confirm the roles still exist and haven't been deleted
+    - Test with a bot account to ensure bot autoroles are working
+  </Accordion>
+  <Accordion title="Permission errors - Bot can't assign roles">
+    **Issue**: The bot fails to assign autoroles due to insufficient permissions.
+
+    **Solutions**:
+
+    - Move the bot's role higher in the server's role hierarchy
+    - Grant the bot "Manage Roles" permission
+    - Ensure autoroles are positioned below the bot's role in hierarchy
+    - Check if the roles have special permissions that prevent assignment
+    - Verify the bot isn't trying to assign roles to other bots without proper permissions
+  </Accordion>
+  <Accordion title="Wrong role assignment - Humans getting bot roles or vice versa">
+    **Issue**: Human users are receiving bot roles or bots are getting human roles.
+
+    **Solutions**:
+
+    - Review your autorole configuration using `/autorole guide`
+    - Ensure you're adding roles to the correct category (humans vs bots)
+    - Check if roles are duplicated in both human and bot autorole lists
+    - Verify that the roles are appropriate for the intended member type
+    - Use `/autorole humans show` and `/autorole bots show` to confirm setup
+  </Accordion>
+  <Accordion title="Role hierarchy conflicts - Some roles overriding others">
+    **Issue**: Autoroles are conflicting with each other or existing member roles.
+
+    **Solutions**:
+
+    - Review your server's role hierarchy and permissions
+    - Ensure autoroles don't contradict each other's permissions
+    - Check if autoroles conflict with verification roles or other systems
+    - Consider the order of role assignment and potential conflicts
+    - Test autorole assignment with a new account to identify issues
+  </Accordion>
+  <Accordion title="Selective assignment - Only some new members receive roles">
+    **Issue**: Autoroles work inconsistently, with some members receiving roles and others not.
+
+    **Solutions**:
+
+    - Check if Discord's verification requirements are affecting new members
+    - Verify the bot is online and functioning when members join
+    - Ensure the server isn't hitting Discord's rate limits for role assignments
+    - Check if specific members have settings that prevent role assignment
+    - Monitor the bot's audit log for any error patterns
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  Autoroles require the bot to have "Manage Roles" permission and the bot's role must be positioned higher than any autoroles in the server's role hierarchy. Failure to meet these requirements will prevent automatic role assignment.
+</Warning>

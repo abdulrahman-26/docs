@@ -1,0 +1,188 @@
+---
+title: "Connection System"
+description: "The connection system automatically assigns or removes roles when a member gains or loses a specific role. This helps in managing perks, progression roles, or access-based roles with ease and automation!"
+---
+
+## Connection System Overview
+
+The connection system creates automated role relationships where gaining or losing a **main role** will automatically grant or remove **connected roles**. This is perfect for managing tiered permissions, progression systems, or role-based perks.
+
+### How It Works
+
+When a member receives a main role, all connected roles are automatically assigned. When they lose the main role, all connected roles are automatically removed. This ensures consistent role management and reduces manual work for administrators.
+
+## Connection Management
+
+### Viewing Connection Configuration
+
+Display all current role connections and their relationships in your server.
+
+```Unspecified Example
+/connection guide
+```
+
+### Creating Role Connections
+
+Link a connection role to a main role, so it gets automatically assigned when the main role is given.
+
+<CodeGroup>
+
+```Unspecified Example
+/connection add (main_role) (connection_role)
+```
+
+
+```Unspecified Syntax
+/connection add @VIP @VIP-Chat-Access
+```
+
+</CodeGroup>
+
+### Removing Role Connections
+
+Remove a specific connection between a main role and a connected role.
+
+<CodeGroup>
+
+```Unspecified Example
+/connection remove (main_role) (connection_role)
+```
+
+
+```Unspecified Syntax
+/connection remove @VIP @VIP-Chat-Access
+```
+
+</CodeGroup>
+
+### Deleting All Connections for a Main Role
+
+Remove all connected roles from a specific main role at once.
+
+<CodeGroup>
+
+```Unspecified Example
+/connection delete (main_role)
+```
+
+
+```Unspecified Syntax
+/connection delete @VIP
+```
+
+</CodeGroup>
+
+### Viewing All Connections
+
+List all role connections currently active in your server.
+
+```Unspecified Example
+/connection show
+```
+
+### Viewing Specific Role Connections
+
+Display all roles connected to a specific main role.
+
+<CodeGroup>
+
+```Unspecified Example
+/connection show connected (main_role)
+```
+
+
+```Unspecified Syntax
+/connection show connected @VIP
+```
+
+</CodeGroup>
+
+### Resetting All Connections
+
+Remove all role connections from your server completely.
+
+```Unspecified Example
+/connection reset
+```
+
+## Use Cases & Examples
+
+### Progression Systems
+
+- **Main Role**: @Level-10 → **Connected Roles**: @Level-10-Perks, @Advanced-Channels
+- **Main Role**: @Premium-Member → **Connected Roles**: @Premium-Chat, @Premium-Voice, @Premium-Features
+
+### Access Management
+
+- **Main Role**: @Staff → **Connected Roles**: @Staff-Channels, @Moderation-Tools
+- **Main Role**: @Verified → **Connected Roles**: @General-Chat, @Voice-Access
+
+### Event Management
+
+- **Main Role**: @Event-Participant → **Connected Roles**: @Event-Updates, @Event-Chat
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Connections not triggering - Roles aren't being assigned automatically">
+    **Issue**: Connected roles are not being automatically assigned when main roles are given.
+
+    **Solutions**:
+
+    - Verify the bot has "Manage Roles" permission in the server
+    - Ensure the bot's role is positioned higher than both main and connected roles in hierarchy
+    - Check if the connection system is properly configured using `/connection guide`
+    - Confirm all roles in the connection still exist and haven't been deleted
+    - Test the connection by manually assigning the main role to a test user
+  </Accordion>
+  <Accordion title="Permission errors - Bot cannot assign connected roles">
+    **Issue**: The bot fails to assign connected roles due to insufficient permissions.
+
+    **Solutions**:
+
+    - Move the bot's role higher in the server's role hierarchy
+    - Grant the bot "Manage Roles" permission
+    - Ensure both main roles and connected roles are positioned below the bot's role
+    - Check if any connected roles have special permissions preventing assignment
+    - Verify the bot can manage roles for the specific users involved
+  </Accordion>
+  <Accordion title="Partial connections - Some connected roles assigned, others not">
+    **Issue**: Only some connected roles are being assigned when the main role is given.
+
+    **Solutions**:
+
+    - Review role hierarchy positioning for all connected roles
+    - Check if some connected roles conflict with existing user roles
+    - Verify all connected roles still exist in the server
+    - Use `/connection show connected` to confirm all expected connections
+    - Test each connected role individually for permission issues
+  </Accordion>
+  <Accordion title="Role removal issues - Connected roles not being removed">
+    **Issue**: Connected roles remain when the main role is removed from a user.
+
+    **Solutions**:
+
+    - Ensure the bot has permission to remove roles from users
+    - Check if users have the connected roles from other sources (multiple main roles)
+    - Verify the connection system is monitoring role removal events
+    - Test by manually removing the main role and observing the behavior
+    - Review if other bots or systems are interfering with role management
+  </Accordion>
+  <Accordion title="Circular connections - Roles creating loops">
+    **Issue**: Main roles and connected roles create circular dependencies causing issues.
+
+    **Solutions**:
+
+    - Review your connection setup to identify circular relationships
+    - Avoid making connected roles also serve as main roles for each other
+    - Plan your role hierarchy and connections before implementation
+    - Use `/connection show` to visualize all connections and identify loops
+    - Restructure connections to follow a clear hierarchy without circles
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  The connection system requires the bot to have "Manage Roles" permission and proper role hierarchy positioning. Circular connections (Role A connects to Role B, which connects back to Role A) should be avoided to prevent unexpected behavior.
+</Warning>

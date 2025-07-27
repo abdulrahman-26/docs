@@ -31,8 +31,17 @@
               "serverconfig/messages/autoresponder",
               "serverconfig/messages/sticky"
             ]
-          }
-        ]
+          },
+          {
+            "group": "Roles",
+            "icon": "member",
+            "pages": [
+              "serverconfig/roles/autorole",
+              "serverconfig/roles/customrole",
+              "serverconfig/roles/connectionrole",
+              "serverconfig/roles/vcrole"
+            ]
+          }        ]
       },
       {
         "group": "Security Setup",

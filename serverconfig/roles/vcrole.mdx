@@ -1,0 +1,166 @@
+---
+title: "Voice Roles System"
+description: "The voice roles system automatically assigns temporary roles to users when they join voice channels and removes them when they leave. Perfect for voice-specific permissions, status indicators, or special voice channel access!"
+---
+
+## Voice Roles System Overview
+
+The voice roles system automatically grants roles to members when they join any voice channel in your server and removes these roles when they leave voice channels. This creates dynamic role assignments based on voice activity, perfect for managing voice-specific permissions or status indicators.
+
+### How It Works
+
+When a member joins a voice channel, they automatically receive the configured voice role. When they leave all voice channels or disconnect, the role is automatically removed. This system works separately for human users and bots, allowing different role configurations for each.
+
+## Voice Roles Configuration
+
+### Viewing Voice Roles Configuration
+
+Display the current voice roles configuration for both humans and bots.
+
+```Unspecified Example
+/invc guide
+```
+
+### Setting Voice Role for Humans
+
+Configure the role that will be automatically assigned to human users when they join voice channels.
+
+<CodeGroup>
+
+```Unspecified Example
+/invc humans (role)
+```
+
+
+```Unspecified Syntax
+/invc humans @In-Voice
+```
+
+</CodeGroup>
+
+### Setting Voice Role for Bots
+
+Configure the role that will be automatically assigned to bots when they join voice channels.
+
+<CodeGroup>
+
+```Unspecified Example
+/invc bots (role)
+```
+
+
+```Unspecified Syntax
+/invc bots @Bot-In-Voice
+```
+
+</CodeGroup>
+
+### Viewing Current Voice Roles
+
+Display the currently configured voice roles for both humans and bots.
+
+```Unspecified Example
+/invc show
+```
+
+### Resetting Voice Roles System
+
+Remove all voice role configurations and disable the system completely.
+
+```Unspecified Example
+/invc reset
+```
+
+## Use Cases & Examples
+
+### Status Indicators
+
+- **Human Role**: @🎤 In Voice - Shows who's currently in voice channels
+- **Bot Role**: @🤖 Bot Active - Indicates which bots are in voice channels
+
+### Voice-Specific Permissions
+
+- **Human Role**: @Voice-User - Grants access to voice-related text channels
+- **Bot Role**: @Music-Bot - Special permissions for music bots in voice
+
+### Activity Tracking
+
+- **Human Role**: @Voice-Active - For tracking voice participation
+- **Bot Role**: @Streaming-Bot - For bots providing voice services
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Roles not being assigned - Users don't get roles when joining voice">
+    **Issue**: Voice roles are not being automatically assigned when users join voice channels.
+
+    **Solutions**:
+
+    - Verify the bot has "Manage Roles" permission in the server
+    - Ensure the bot's role is positioned higher than the voice roles in hierarchy
+    - Check if the voice roles system is properly configured using `/invc guide`
+    - Confirm the configured roles still exist and haven't been deleted
+    - Test by joining a voice channel yourself to verify functionality
+  </Accordion>
+  <Accordion title="Roles not being removed - Users keep roles after leaving voice">
+    **Issue**: Voice roles remain assigned even after users leave all voice channels.
+
+    **Solutions**:
+
+    - Ensure the bot has permission to remove roles from users
+    - Check if the bot is online and monitoring voice state changes
+    - Verify users have completely left all voice channels (not just switched channels)
+    - Test by completely disconnecting from voice and waiting a few seconds
+    - Check if other systems are reassigning the same roles
+  </Accordion>
+  <Accordion title="Permission errors - Bot cannot assign voice roles">
+    **Issue**: The bot fails to assign voice roles due to insufficient permissions.
+
+    **Solutions**:
+
+    - Move the bot's role higher in the server's role hierarchy
+    - Grant the bot "Manage Roles" permission
+    - Ensure voice roles are positioned below the bot's role in hierarchy
+    - Check if voice roles have special permissions preventing assignment
+    - Verify the bot can access voice channel information
+  </Accordion>
+  <Accordion title="Inconsistent behavior - Roles working sometimes but not always">
+    **Issue**: Voice roles work inconsistently, sometimes assigning and sometimes not.
+
+    **Solutions**:
+
+    - Check Discord's API status for voice-related issues
+    - Verify the bot isn't hitting Discord's rate limits for role assignments
+    - Ensure stable internet connection for the bot
+    - Monitor if the issue occurs with specific voice channels or all channels
+    - Check bot logs for any error patterns during voice events
+  </Accordion>
+  <Accordion title="Role conflicts - Voice roles interfering with other systems">
+    **Issue**: Voice roles are conflicting with other role systems or permissions.
+
+    **Solutions**:
+
+    - Review role hierarchy and permissions for conflicts
+    - Ensure voice roles don't override important server permissions
+    - Check if voice roles conflict with other automated role systems
+    - Consider using different roles that don't interfere with existing systems
+    - Test voice role permissions to ensure they work as intended
+  </Accordion>
+  <Accordion title="Bot voice roles - Music bots not getting roles properly">
+    **Issue**: Music bots or other voice bots aren't receiving voice roles correctly.
+
+    **Solutions**:
+
+    - Ensure bot voice roles are configured using `/invc bots`
+    - Check if the music bot has proper permissions to join voice channels
+    - Verify the voice roles system can detect bot voice state changes
+    - Test with different types of bots to isolate the issue
+    - Consider if the bot's voice connection method affects role assignment
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  Voice roles are temporary and dynamic - they are automatically removed when users leave voice channels. Ensure these roles don't grant critical permissions that users might lose unexpectedly when disconnecting from voice.
+</Warning>
