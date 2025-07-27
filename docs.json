@@ -51,6 +51,14 @@
               "serverconfig/extras/ignore"
             ]
           },
+          {
+            "group": "LeaderBoards",
+            "icon": "stats",
+            "pages": [
+              "serverconfig/stats/message-ld",
+              "serverconfig/stats/voice-lb"
+            ]
+          },
           "serverconfig/tempvoice"
         ]
       },

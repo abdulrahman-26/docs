@@ -13,6 +13,9 @@ The voice leaderboard system tracks member activity based on time spent in voice
   <Step title="Voice Time Tracking">
     Automatically tracks time members spend in voice channels across the server
   </Step>
+  <Step title="Channel Control">
+    Configure which voice channels are allowed or disallowed for leaderboard tracking
+  </Step>
   <Step title="Visual Leaderboards">
     Display attractive leaderboard frames showing full stats
   </Step>
@@ -20,7 +23,7 @@ The voice leaderboard system tracks member activity based on time spent in voice
     Add, remove, or set specific voice time for individual users
   </Step>
   <Step title="Timeframe Options">
-    Track voice activity across different time periods (daily, weekly, monthly, all-time)
+    Track voice activity across different time periods (daily, weekly, monthly, yearly, all-time)
   </Step>
 </Steps>
 
@@ -46,7 +49,6 @@ View the server's voice activity leaderboard with stylized frames.
 ?leaderboard voices @freycikkk
 ?leaderboard voices 123456789012345678
 ```
-
 
 ```Unspecified Aliases
 ?lb voices @freycikkk
@@ -77,12 +79,10 @@ Increase a user's voice time by a specified amount within a timeframe.
 /voices add (user) (number) (timeframe)
 ```
 
-
 ```Unspecified Syntax
 /voices add @freycikkk 120 weekly
 /voices add 123456789012345678 60 daily
 ```
-
 
 ```Aliases
 /v add @freycikkk 120 weekly
@@ -101,12 +101,10 @@ Decrease a user's voice time by a specified amount within a timeframe.
 /voices remove (user) (number) (timeframe)
 ```
 
-
 ```Unspecified Syntax
 /voices remove @freycikkk 30 monthly
 /voices remove 123456789012345678 15 daily
 ```
-
 
 ```Aliases
 /v remove @freycikkk 30 monthly
@@ -125,16 +123,124 @@ Set a user's exact voice time for a specific timeframe.
 /voices set (user) (number) (timeframe)
 ```
 
-
 ```Unspecified Syntax
 /voices set @freycikkk 500 alltime
 /voices set 123456789012345678 0 weekly
 ```
 
-
 ```Aliases
 /v set @freycikkk 500 alltime
 /v set 123456789012345678 0 weekly
+```
+
+</CodeGroup>
+
+## Channel Management
+
+### Allowed Channels
+
+Configure which voice channels are included in leaderboard tracking.
+
+<CodeGroup>
+
+```Unspecified Toggle Channel
+/voices allowed (channel)
+```
+
+```Unspecified Syntax
+/voices allowed #gaming-voice
+/voices allowed 123456789012345678
+```
+
+```Aliases
+/v allowed #gaming-voice
+/v allowed 123456789012345678
+```
+
+</CodeGroup>
+
+### Viewing Allowed Channels
+
+Display all voice channels currently allowed for leaderboard tracking.
+
+<CodeGroup>
+
+```Unspecified Example
+/voices allowed show
+```
+
+```Aliases
+/v allowed show
+```
+
+</CodeGroup>
+
+### Resetting Allowed Channels
+
+Reset allowed channels list to default (all channels allowed).
+
+<CodeGroup>
+
+```Unspecified Example
+/voices allowed reset
+```
+
+```Aliases
+/v allowed reset
+```
+
+</CodeGroup>
+
+### Disallowed Channels
+
+Configure which voice channels are excluded from leaderboard tracking.
+
+<CodeGroup>
+
+```Unspecified Toggle Channel
+/voices disallowed (channel)
+```
+
+```Unspecified Syntax
+/voices disallowed #afk-voice
+/voices disallowed 123456789012345678
+```
+
+```Aliases
+/v disallowed #afk-voice
+/v disallowed 123456789012345678
+```
+
+</CodeGroup>
+
+### Viewing Disallowed Channels
+
+Display all voice channels currently excluded from leaderboard tracking.
+
+<CodeGroup>
+
+```Unspecified Example
+/voices disallowed show
+```
+
+```Aliases
+/v disallowed show
+```
+
+</CodeGroup>
+
+### Resetting Disallowed Channels
+
+Clear the disallowed channels list (no channels excluded).
+
+<CodeGroup>
+
+```Unspecified Example
+/voices disallowed reset
+```
+
+```Aliases
+/v disallowed reset
 ```
 
 </CodeGroup>
@@ -150,6 +256,9 @@ Set a user's exact voice time for a specific timeframe.
   </Card>
   <Card title="Monthly">
     Track voice time within the current month
+  </Card>
+  <Card title="Yearly">
+    Track voice time within the current year
   </Card>
   <Card title="All-time">
     Track total voice time since tracking began
@@ -201,7 +310,7 @@ Set a user's exact voice time for a specific timeframe.
     - Confirm you have administrator permissions or extra owner/admin status
     - Verify the target user exists and is in the server
     - Check if you're using the correct user mention or ID format
-    - Ensure the timeframe parameter is spelled correctly (daily/weekly/monthly/all-time)
+    - Ensure the timeframe parameter is spelled correctly (daily/weekly/monthly/yearly/alltime)
     - Try with a smaller number to test if there are value limits
   </Accordion>
   <Accordion title="Leaderboard frame not displaying - Visual issues">

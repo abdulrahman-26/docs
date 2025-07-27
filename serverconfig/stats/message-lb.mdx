@@ -13,6 +13,9 @@ The message leaderboard system tracks member activity based on messages sent in 
   <Step title="Activity Tracking">
     Automatically tracks messages sent by members across all server channels
   </Step>
+  <Step title="Channel Control">
+    Configure which channels are allowed or disallowed for leaderboard tracking
+  </Step>
   <Step title="Visual Leaderboards">
     Display attractive leaderboard frames showing all stats
   </Step>
@@ -20,7 +23,7 @@ The message leaderboard system tracks member activity based on messages sent in 
     Add, remove, or set specific message counts for individual users
   </Step>
   <Step title="Timeframe Options">
-    Track activity across different time periods (daily, weekly, monthly, all-time)
+    Track activity across different time periods (daily, weekly, monthly, yearly, all-time)
   </Step>
 </Steps>
 
@@ -139,6 +142,124 @@ Set a user's exact message count for a specific timeframe.
 
 </CodeGroup>
 
+## Channel Management
+
+### Allowed Channels
+
+Configure which channels are included in message leaderboard tracking.
+
+<CodeGroup>
+
+```Unspecified Toggle Channel
+/messages allowed (channel)
+```
+
+
+```Unspecified Syntax
+/messages allowed #general
+/messages allowed 123456789012345678
+```
+
+
+```Aliases
+/m allowed #general
+/m allowed 123456789012345678
+```
+
+</CodeGroup>
+
+### Viewing Allowed Channels
+
+Display all channels currently allowed for message leaderboard tracking.
+
+<CodeGroup>
+
+```Unspecified Example
+/messages allowed show
+```
+
+
+```Aliases
+/m allowed show
+```
+
+</CodeGroup>
+
+### Resetting Allowed Channels
+
+Reset allowed channels list to default (all channels allowed).
+
+<CodeGroup>
+
+```Unspecified Example
+/messages allowed reset
+```
+
+
+```Aliases
+/m allowed reset
+```
+
+</CodeGroup>
+
+### Disallowed Channels
+
+Configure which channels are excluded from message leaderboard tracking.
+
+<CodeGroup>
+
+```Unspecified Toggle Channel
+/messages disallowed (channel)
+```
+
+
+```Unspecified Syntax
+/messages disallowed #bot-commands
+/messages disallowed 123456789012345678
+```
+
+
+```Aliases
+/m disallowed #bot-commands
+/m disallowed 123456789012345678
+```
+
+</CodeGroup>
+
+### Viewing Disallowed Channels
+
+Display all channels currently excluded from message leaderboard tracking.
+
+<CodeGroup>
+
+```Unspecified Example
+/messages disallowed show
+```
+
+
+```Aliases
+/m disallowed show
+```
+
+</CodeGroup>
+
+### Resetting Disallowed Channels
+
+Clear the disallowed channels list (no channels excluded).
+
+<CodeGroup>
+
+```Unspecified Example
+/messages disallowed reset
+```
+
+
+```Aliases
+/m disallowed reset
+```
+
+</CodeGroup>
+
 ## Available Timeframes
 
 <CardGroup cols={2}>
@@ -150,6 +271,9 @@ Set a user's exact message count for a specific timeframe.
   </Card>
   <Card title="Monthly">
     Track messages sent within the current month
+  </Card>
+  <Card title="Yearly">
+    Track messages sent within the current year
   </Card>
   <Card title="All-time">
     Track total messages sent since tracking began
@@ -199,7 +323,7 @@ Set a user's exact message count for a specific timeframe.
     - Confirm you have administrator permissions or extra owner/admin status
     - Verify the target user exists and is in the server
     - Check if you're using the correct user mention or ID format
-    - Ensure the timeframe parameter is spelled correctly
+    - Ensure the timeframe parameter is spelled correctly (daily/weekly/monthly/yearly/alltime)
     - Try with a smaller number to test if there are value limits
   </Accordion>
   <Accordion title="Leaderboard frame not displaying - Visual issues">
