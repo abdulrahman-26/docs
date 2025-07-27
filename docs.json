@@ -43,6 +43,16 @@
             ]
           }        ]
       },
+          {
+            "group": "Extras",
+            "icon": "message",
+            "pages": [
+              "serverconfig/extras/extrapermissions",
+              "serverconfig/extras/noprefix",
+              "serverconfig/extras/ignore"
+            ]
+          },
+          "serverconfig/tempvoice"
       {
         "group": "Security Setup",
         "pages": [

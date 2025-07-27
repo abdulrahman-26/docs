@@ -1,0 +1,204 @@
+---
+title: "No Prefix "
+description: "Allow trusted users to execute bot commands without using a prefix. "
+---
+
+## No Prefix System Overview
+
+The no prefix system allows designated users to execute bot commands without typing the traditional prefix (like `?`). Instead of typing `?afk`, users can simply type `afk` directly. This creates a more natural command experience while maintaining security through selective access.
+
+### How It Works
+
+<Steps>
+  <Step title="User Authorization">
+    Server owners or extra owners grant no-prefix access to trusted members
+  </Step>
+  <Step title="Command Recognition">
+    The bot automatically detects and processes commands without prefix for authorized users
+  </Step>
+  <Step title="Seamless Execution">
+    Commands work exactly the same, just without the prefix requirement
+  </Step>
+  <Step title="Secure Access">
+    Only explicitly authorized users can use this feature
+  </Step>
+</Steps>
+
+## System Management
+
+### Interactive Setup Guide
+
+Access a comprehensive guide  for configuring the no prefix system.
+
+```Unspecified Example
+/guildnoprefix guide
+```
+
+### Quick Configuration Interface
+
+Launch an interactive interface to easily manage no prefix settings and user permissions.
+
+```Unspecified Example
+/guildnoprefix interface
+```
+
+### Adding Users to No Prefix
+
+Grant a user the ability to use commands without prefix. This is a powerful permission that should only be given to highly trusted members.
+
+<CodeGroup>
+
+```Unspecified Example
+/guildnoprefix add (user)
+```
+
+
+```Unspecified Syntax
+/guildnoprefix add @freycikkk
+/guildnoprefix add 123456789012345678
+```
+
+</CodeGroup>
+
+<Warning>
+  Only server owners and extra owners can grant no-prefix access. This prevents unauthorized escalation of command privileges.
+</Warning>
+
+### Removing Users from No Prefix
+
+Revoke a user's no-prefix privileges, requiring them to use the standard prefix again.
+
+<CodeGroup>
+
+```Unspecified Example
+/guildnoprefix remove (user)
+```
+
+
+```Unspecified Syntax
+/guildnoprefix remove @freycikkk
+/guildnoprefix remove 123456789012345678
+```
+
+</CodeGroup>
+
+### Viewing Authorized Users
+
+Display all users who currently have no-prefix access in your server.
+
+```Unspecified Example
+/guildnoprefix show
+```
+
+### Resetting No Prefix System
+
+Remove all no-prefix permissions and reset the system completely.
+
+```Unspecified Example
+/guildnoprefix reset
+```
+
+## Command Examples
+
+### Before No Prefix Access
+
+```Unspecified Standard Usage
+?afk Going to lunch
+?userinfo @freycikkk
+?weather New York
+```
+
+### After No Prefix Access
+
+```Unspecified No Prefix Usage
+afk Going to lunch
+userinfo @freycikkk
+weather New York
+```
+
+<Note>
+  All bot functionality remains identical - only the prefix requirement is removed for authorized users. Commands still work with prefix if preferred.
+</Note>
+
+## Permission Requirements
+
+### Who Can Manage No Prefix
+
+<CardGroup cols={2}>
+  <Card title="Server Owner">
+    The original **server creator** has full access to grant and revoke no-prefix permissions
+  </Card>
+  <Card title="Extra Owner">
+    Users designated as **Extra Owner** through the bot's permission system can also manage no-prefix access
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Commands not working without prefix - User types command but nothing happens">
+    **Issue**: Authorized users type commands without prefix but the bot doesn't respond.
+
+    **Solutions**:
+
+    - Verify the user is properly added using `/guildnoprefix show`
+    - Check if the bot is online and functioning normally with prefixed commands
+    - Ensure the command name is spelled correctly (e.g., `afk` not `away`)
+    - Confirm the bot has permission to read messages in that channel
+    - Test with a simple command like `ping` to verify no-prefix functionality
+  </Accordion>
+  <Accordion title="Cannot add users - Permission denied errors">
+    **Issue**: Getting permission errors when trying to add users to the no-prefix system.
+
+    **Solutions**:
+
+    - Confirm you are the server owner or have "Extra Owner" permissions
+    - Check if the target user exists and is in the server
+    - Verify the bot has proper permissions to manage server settings
+    - Ensure you're using the correct user mention or ID format
+    - Try adding yourself first to test the system functionality
+  </Accordion>
+  <Accordion title="Conflicts with regular messages - Bot responding to normal conversation">
+    **Issue**: The bot is treating regular messages as commands for no-prefix users.
+
+    **Solutions**:
+
+    - This shouldn't happen with proper bot configuration - report if it does
+    - Check if the user is accidentally typing valid command names
+    - Verify the bot isn't conflicting with other bots or auto-moderation
+    - Consider temporarily removing no-prefix access while investigating
+    - Review recent messages to identify the trigger pattern
+  </Accordion>
+  <Accordion title="User still needs prefix - No-prefix not working after being added">
+    **Issue**: Users added to the system still need to use prefix for commands.
+
+    **Solutions**:
+
+    - Double-check the user was successfully added with `/guildnoprefix show`
+    - Ensure the user is trying commands in a channel where the bot has permissions
+    - Verify the bot has been restarted or refreshed its permissions cache
+    - Try removing and re-adding the user to refresh their permissions
+    - Test with the user using a different command to isolate the issue
+  </Accordion>
+  <Accordion title="System reset issues - Cannot clear no-prefix permissions">
+    **Issue**: The reset command isn't working or permissions persist after reset.
+
+    **Solutions**:
+
+    - Confirm you have proper permissions to reset the system
+    - Try using `/guildnoprefix show` to verify the current state
+    - Manually remove users one by one if reset fails
+    - Check if there are any bot permission issues preventing database changes
+    - Contact support if the system appears corrupted or unresponsive
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  If users report inconsistent behavior, have them try the same command with and without prefix to help identify the specific issue. The bot should work identically in both cases.
+</Tip>
+
+<Warning>
+  Remember that no-prefix access bypasses the visual indicator that a message is a bot command. Make sure authorized users understand the responsibility that comes with this privilege.
+</Warning>

@@ -1,0 +1,226 @@
+---
+title: "Extra Permissions"
+description: "Grant trusted users elevated permissions equivalent to server ownership or administrative access for bot management and moderation capabilities."
+---
+
+## Extra Permissions Overview
+
+The extra permissions system allows server owners to grant elevated bot access to trusted users. Extra owners receive full bot permissions equivalent to the actual server owner, while extra admins get administrative access to most bot features.
+
+### Permission Levels
+
+<Steps>
+  <Step title="Extra Owner">
+    Full bot access identical to server owner - can manage all systems and moderate members
+  </Step>
+  <Step title="Extra Admin">
+    Administrative access to most bot features with some restrictions
+  </Step>
+  <Step title="Standard User">
+    Regular bot access based on Discord permissions
+  </Step>
+</Steps>
+
+<Warning>
+  Extra owners have complete bot control including the ability to ban, kick, and manage all bot systems. Only grant this to users you trust completely.
+</Warning>
+
+## System Setup
+
+### Interactive Guide
+
+Access the comprehensive extra permissions setup guide.
+
+```Unspecified Example
+/extra guide
+```
+
+### Quick Configuration Interface
+
+Launch an interactive interface to manage extra permissions efficiently.
+
+```Unspecified Example
+/extra interface
+```
+
+## Extra Owner Management
+
+### Adding Extra Owners
+
+Grant a user complete bot permissions equivalent to server ownership.
+
+<CodeGroup>
+
+```Unspecified Example
+/extra owner add (user)
+```
+
+
+```Unspecified Syntax
+/extra owner add @freycikkk
+/extra owner add 123456789012345678
+```
+
+</CodeGroup>
+
+<Warning>
+  Extra owners can ban, kick members, manage all bot systems, configure antinuke, and perform any action the real server owner can do with the bot.
+</Warning>
+
+### Removing Extra Owners
+
+Revoke extra owner permissions from a user.
+
+<CodeGroup>
+
+```Unspecified Example
+/extra owner remove (user)
+```
+
+
+```Unspecified Syntax
+/extra owner remove @freycikkk
+/extra owner remove 123456789012345678
+```
+
+</CodeGroup>
+
+### Viewing Extra Owners
+
+Display all users with extra owner permissions.
+
+```Unspecified Example
+/extra owner show
+```
+
+### Resetting Extra Owners
+
+Remove extra owner permissions from all users at once.
+
+```Unspecified Example
+/extra owner reset
+```
+
+## Extra Admin Management
+
+### Adding Extra Admins
+
+Grant a user administrative access to most bot features.
+
+<CodeGroup>
+
+```Unspecified Example
+/extra admin add (user)
+```
+
+
+```Unspecified Syntax
+/extra admin add @freycikkk
+/extra admin add 123456789012345678
+```
+
+</CodeGroup>
+
+### Removing Extra Admins
+
+Revoke extra admin permissions from a user.
+
+<CodeGroup>
+
+```Unspecified Example
+/extra admin remove (user)
+```
+
+
+```Unspecified Syntax
+/extra admin remove @freycikkk
+/extra admin remove 123456789012345678
+```
+
+</CodeGroup>
+
+### Viewing Extra Admins
+
+Display all users with extra admin permissions.
+
+```Unspecified Example
+/extra admin show
+```
+
+### Resetting Extra Admins
+
+Remove extra admin permissions from all users at once.
+
+```Unspecified Example
+/extra admin reset
+```
+
+## Permission Comparison
+
+<CardGroup cols={2}>
+  <Card title="Extra Owner Capabilities">
+    Complete bot control, member moderation (ban/kick), antinuke management, all system configurations, and every feature available to the real owner
+  </Card>
+  <Card title="Extra Admin Capabilities">
+    Most bot configurations, utility management, system setup, with some restrictions on sensitive features like antinuke
+  </Card>
+</CardGroup>
+
+## Use Cases
+
+<CardGroup cols={2}>
+  <Card title="Co-Owners">
+    Trusted co-owners who need full server management capabilities through the bot
+  </Card>
+  <Card title="Head Admins">
+    Senior staff requiring extensive moderation and configuration access
+  </Card>
+  <Card title="Bot Managers">
+    Dedicated users responsible for maintaining and configuring bot systems
+  </Card>
+  <Card title="Temporary Authority">
+    Temporary elevation for specific projects or when the owner is unavailable
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Extra permissions not working - Users cannot access elevated features">
+    **Issue**: Users with extra permissions still cannot access restricted commands or features.
+
+    **Solutions**:
+
+    - Verify the user is properly added using `/extra owner show` or `/extra admin show`
+    - Check if the bot has the necessary Discord permissions for the action
+    - Ensure the user's Discord role hierarchy allows the intended action
+    - Confirm the bot is online and functioning properly
+    - Test with a simple elevated command to verify permission level
+  </Accordion>
+  <Accordion title="Cannot manage extra permissions - Permission denied">
+    **Issue**: Getting permission errors when trying to add or remove extra permissions.
+
+    **Solutions**:
+
+    - Confirm you are the actual server owner
+    - Verify the target user exists and is in the server
+    - Check if you're using the correct user mention or ID format
+    - Ensure the bot has proper permissions to manage server settings
+    - Try refreshing Discord and attempting the command again
+  </Accordion>
+  <Accordion title="Extra owners cannot moderate - Ban/kick commands failing">
+    **Issue**: Extra owners cannot use moderation commands like ban or kick despite having permissions.
+
+    **Solutions**:
+
+    - Ensure the bot has "Ban Members" and "Kick Members" permissions
+    - Check if the bot's role is higher than the target user's highest role
+    - Verify the target user is not the actual server owner (cannot be moderated)
+    - Confirm the extra owner permission is properly configured
+    - Test moderation commands in different channels
+  </Accordion>
+</AccordionGroup>
+
+<Info>
+  Only the actual server owner can manage extra permissions. Extra owners cannot add or remove other extra owners/admins to prevent permission escalation conflicts.
+</Info>

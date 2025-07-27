@@ -1,0 +1,197 @@
+---
+title: "Ignore System"
+description: "Disable bot utility features in specific channels while allowing exempt users to bypass these restrictions."
+---
+
+## Ignore System Overview
+
+The ignore system disables bot utility features (not automod/moderation/antinuke) in designated channels. This is useful for keeping certain channels free from bot interactions while still allowing trusted users to access commands when needed.
+
+## System Setup
+
+### Interactive Guide
+
+View the complete ignore system setup guide.
+
+```Unspecified Example
+/ignore guide
+```
+
+### Quick Configuration Interface
+
+Launch an interactive interface to manage ignore settings efficiently.
+
+```Unspecified Example
+/ignore interface
+```
+
+## Channel Management
+
+### Adding Ignore Channels
+
+Disable bot utility features in a specific channel.
+
+<CodeGroup>
+
+```Unspecified Example
+/ignore channel add (channel)
+```
+
+
+```Unspecified Syntax
+/ignore channel add #general
+/ignore channel add 123456789012345678
+```
+
+</CodeGroup>
+
+### Removing Ignore Channels
+
+Re-enable bot utility features in a previously ignored channel.
+
+<CodeGroup>
+
+```Unspecified Example
+/ignore channel remove (channel)
+```
+
+
+```Unspecified Syntax
+/ignore channel remove #general
+/ignore channel remove 123456789012345678
+```
+
+</CodeGroup>
+
+### Viewing Ignored Channels
+
+Display all channels where bot utility features are currently disabled.
+
+```Unspecified Example
+/ignore channel show
+```
+
+### Resetting All Ignored Channels
+
+Remove all channels from the ignore list at once.
+
+```Unspecified Example
+/ignore channel reset
+```
+
+## User Exemption Management
+
+### Adding Exempt Users
+
+Allow specific users to use bot utility features even in ignored channels.
+
+<Warning>
+  This is a dangerous permission and will allow the user to entirely alter the ignore configuration.
+</Warning>
+
+<CodeGroup>
+
+```Unspecified Example
+/ignore bypass add (user)
+```
+
+
+```Unspecified Syntax
+/ignore bypass add @freycikkk
+/ignore bypass add 123456789012345678
+```
+
+</CodeGroup>
+
+### Removing Exempt Users
+
+Remove exemption privileges from users, making them subject to channel restrictions.
+
+<CodeGroup>
+
+```Unspecified Example
+/ignore bypass remove (user)
+```
+
+
+```Unspecified Syntax
+/ignore bypass remove @freycikkk
+/ignore bypass remove 123456789012345678
+```
+
+</CodeGroup>
+
+### Viewing Exempt Users
+
+List all users who can bypass ignore channel restrictions.
+
+```Unspecified Example
+/ignore bypass show
+```
+
+### Resetting All Exempt Users
+
+Remove exemption privileges from all users at once.
+
+```Unspecified Example
+/ignore bypass reset
+```
+
+## Use Cases
+
+<CardGroup cols={2}>
+  <Card title="General Chat">
+    Keep casual conversation channels free from utility commands while allowing moderators access
+  </Card>
+  <Card title="Event Channels">
+    Prevent utility spam during events but allow organizers to use necessary commands
+  </Card>
+  <Card title="Serious Discussions">
+    Maintain focused discussion channels while giving trusted members command access
+  </Card>
+  <Card title="Newcomer Areas">
+    Reduce bot noise in welcome channels while allowing staff to assist new members
+  </Card>
+</CardGroup>
+
+<Note>
+  The ignore system only affects utility features. Moderation, automod, and antinuke systems continue working normally in all channels.
+</Note>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Commands still working in ignored channels">
+    **Issue**: Bot utility features are still responding in channels marked as ignored.
+
+    **Solutions**:
+
+    - Verify the channel is properly added using `/ignore channel show`
+    - Check if the user has exemption privileges with `/ignore bypass show`
+    - Ensure you're testing utility commands, not moderation features
+    - Confirm the bot has refreshed its configuration
+  </Accordion>
+  <Accordion title="Exempt users cannot use commands">
+    **Issue**: Users with exemption privileges still cannot access utility features in ignored channels.
+
+    **Solutions**:
+
+    - Confirm the user is properly added using `/ignore bypass show`
+    - Check if the channel is actually in the ignore list
+    - Verify the bot has proper permissions in the channel
+    - Test with a simple utility command like `?ping`
+  </Accordion>
+  <Accordion title="System not applying to new channels">
+    **Issue**: Newly created channels aren't following ignore settings.
+
+    **Solutions**:
+
+    - Remember that channels must be manually added to the ignore list
+    - Use `/ignore channel add` for each new channel you want to ignore
+    - Check if channel permissions allow the bot to function properly
+  </Accordion>
+</AccordionGroup>
+
+<Info>
+  Moderation commands, automod, and antinuke features are NOT affected by the ignore system and will continue working in all channels for security purposes.
+</Info>
