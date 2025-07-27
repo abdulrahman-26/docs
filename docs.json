@@ -28,7 +28,10 @@
                 "icon": "message",
                 "pages": [
                   "serverconfig/messages/welcome",
-                  "serverconfig/messages/boost"
+                  "serverconfig/messages/boost",
+                  "serverconfig/messages/embed",
+                  "serverconfig/messages/autoresponder",
+                  "serverconfig/messages/sticky"
                 ]
               }
             ]

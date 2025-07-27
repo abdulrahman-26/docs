@@ -1,0 +1,188 @@
+---
+title: "Sticky System"
+description: "Keep important messages visible at all times with our sticky message system. Create persistent messages that automatically reappear at the bottom of channels whenever new messages are sent."
+---
+
+## Sticky Message Setup
+
+### Getting Started Guide
+
+View a comprehensive guide on how to set up and use the sticky message system effectively.
+
+```Unspecified Example
+/sticky guide
+```
+
+### Creating a Sticky Message
+
+Create a new sticky message by assigning it an ID and selecting a target channel. This opens the visual embed builder to customize your sticky message.
+
+<CodeGroup>
+
+```Unspecified Example
+/sticky create (sticky_id) (channel)
+```
+
+
+```Unspecified Syntax
+/sticky create rules #general
+```
+
+</CodeGroup>
+
+<Frame>
+  <img
+    src="/images/stickyembed.png"
+    style={{ width:"100%" }}
+    className="mx-auto"
+    alt="Sticky Message Embed Builder"
+    title=""
+  />
+</Frame>
+
+<Tip>
+  To understand each button (e.g., **Content**, **Title**, **Footer**, etc.) and how variables work, visit the [Embed Builder](/link/to/embed-docs) page. _(Coming soon\!)_
+</Tip>
+
+### Editing a Sticky Message
+
+Modify an existing sticky message using its ID. This re-opens the interactive embed editor.
+
+<CodeGroup>
+
+```Unspecified Example
+/sticky edit (sticky_id)
+```
+
+
+```Unspecified Syntax
+/sticky edit rules
+```
+
+</CodeGroup>
+
+### Removing a Sticky Message
+
+Delete a specific sticky message using its ID.
+
+<CodeGroup>
+
+```Unspecified Example
+/sticky remove (sticky_id)
+```
+
+
+```Unspecified Syntax
+/sticky remove rules
+```
+
+</CodeGroup>
+
+### Changing the Sticky Channel
+
+Change the channel where a specific sticky message will appear.
+
+<CodeGroup>
+
+```Unspecified Example
+/sticky channel (sticky_id) (channel)
+```
+
+
+```Unspecified Syntax
+/sticky channel rules #announcements
+```
+
+</CodeGroup>
+
+### Viewing All Sticky Messages
+
+List all active sticky message configurations for your server.
+
+```Unspecified Example
+/sticky show
+```
+
+### Resetting the Sticky System
+
+Completely reset and remove all sticky message setups.
+
+```Unspecified Example
+/sticky reset
+```
+
+<Note>
+  Sticky messages only reappear when regular users send messages. Bot messages and commands typically don't trigger the sticky system to avoid spam.
+</Note>
+
+### Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Use for Important Info" icon="pin">
+    Perfect for server rules, announcements, or frequently needed information
+  </Card>
+  <Card title="Keep Content Concise" icon="file-text">
+    Shorter messages work better as they don't overwhelm the chat
+  </Card>
+  <Card title="Limit Per Channel" icon="hash">
+    Use only one sticky message per channel to avoid clutter
+  </Card>
+  <Card title="Regular Updates" icon="refresh-cw">
+    Update sticky content regularly to keep information current
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Sticky not appearing - Messages aren't staying pinned">
+    **Issue**: The sticky message is not reappearing when new messages are sent in the channel.
+
+    **Solutions**:
+
+    - Check if the bot has "Send Messages" permission in the target channel
+    - Verify the bot has "Manage Messages" permission to delete old sticky messages
+    - Ensure the sticky message is properly configured using `/sticky show`
+    - Confirm the target channel still exists and hasn't been deleted
+    - Check if the bot is online and functioning properly
+  </Accordion>
+  <Accordion title="Variables not working - Placeholders showing as text">
+    **Issue**: Variables like `<<user:name>>` or `<<server:name>>` are displaying as plain text instead of actual values.
+
+    **Solutions**:
+
+    - Ensure proper variable syntax using `<<variable>>` format
+    - Check for typos in variable names (e.g., `<<server:name>>` not `<<servername>>`)
+    - Verify you're using supported variables only
+    - Make sure there are no extra spaces inside the angle brackets
+    - Test with a simple variable like `<<server:name>>` first
+  </Accordion>
+  <Accordion title="Multiple sticky messages appearing - Duplicates in channel">
+    **Issue**: Multiple copies of the sticky message are appearing instead of replacing the previous one.
+
+    **Solutions**:
+
+    - Verify the bot has "Manage Messages" permission to delete old messages
+    - Check if there are conflicting sticky setups with the same ID
+    - Ensure the bot's role hierarchy allows message management
+    - Try resetting and recreating the sticky message
+    - Manually delete duplicate messages and test again
+  </Accordion>
+  <Accordion title="Embed not displaying - Sticky appears as plain text">
+    **Issue**: Sticky messages are showing as plain text instead of rich embeds.
+
+    **Solutions**:
+
+    - Confirm the bot has "Embed Links" permission in the target channel
+    - Check if the sticky message was configured as an embed (not plain text)
+    - Verify the embed content is properly formatted
+    - Ensure the channel allows embeds (some channels may have restrictions)
+    - Review embed builder configuration for any formatting errors
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  If the bot lacks "Manage Messages" permission, sticky messages will accumulate instead of replacing each other. Ensure proper permissions before creating sticky messages.
+</Warning>

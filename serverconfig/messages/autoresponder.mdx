@@ -1,0 +1,178 @@
+---
+title: "Autoresponder System"
+description: "Create automatic responses to specific words or phrases in your server. Set up custom triggers that respond instantly when mentioned in chat, perfect for FAQs, announcements, or interactive content."
+---
+
+## Autoresponder Setup
+
+### Getting Started Guide
+
+View a comprehensive guide on how to set up and use the autoresponder system effectively.
+
+```Unspecified Example
+/autoresponder guide
+```
+
+### Creating an Autoresponder
+
+Create a new autoresponder by setting a trigger word or phrase. This opens the visual embed builder to customize your response message.
+
+<CodeGroup>
+
+```Unspecified Example
+/autoresponder create (trigger)
+```
+
+
+```Unspecified Syntax
+/autoresponder create hey
+```
+
+</CodeGroup>
+
+<Frame>
+  <img
+    src="/images/autoresponder.png"
+    style={{ width:"100%" }}
+    className="mx-auto"
+    alt="Autoresponder Embed Builder"
+    title=""
+  />
+</Frame>
+
+<Tip>
+  To understand each button (e.g., **Content**, **Title**, **Footer**, etc.) and how variables work, visit the [Embed Builder](/link/to/embed-docs) page. _(Coming soon\!)_
+</Tip>
+
+### Editing an Autoresponder
+
+Modify an existing autoresponder using its trigger word. This re-opens the interactive embed editor.
+
+<CodeGroup>
+
+```Unspecified Example
+/autoresponder edit (trigger)
+```
+
+
+```Unspecified Syntax
+/autoresponder edit hey
+```
+
+</CodeGroup>
+
+### Removing an Autoresponder
+
+Delete a specific autoresponder using its trigger word.
+
+<CodeGroup>
+
+```Unspecified Example
+/autoresponder remove (trigger)
+```
+
+
+```Unspecified Syntax
+/autoresponder remove hey
+```
+
+</CodeGroup>
+
+### Enabling Auto-Delete
+
+Set a time (between **5–60 seconds**) to automatically delete the autoresponder message after it is sent.
+
+<CodeGroup>
+
+```Unspecified Example
+/autoresponder autodel (trigger) (time)
+```
+
+
+```Unspecified Syntax
+/autoresponder autodel hey 30
+```
+
+</CodeGroup>
+
+### Viewing All Autoresponders
+
+List all active autoresponder configurations for your server.
+
+```Unspecified Example
+/autoresponder config
+```
+
+### Resetting the Autoresponder System
+
+Completely reset and remove all autoresponder setups.
+
+```Unspecified Example
+/autoresponder reset
+```
+
+### Best Practices
+
+<CardGroup cols={2}>
+  <Card title="Choose Clear Triggers" icon="target">
+    Use specific words that won't cause spam or false triggers
+  </Card>
+  <Card title="Avoid Common Words" icon="alert-triangle">
+    Don't use words like "the", "and", or "is" as triggers
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Autoresponder not triggering - No response to trigger words">
+    **Issue**: The autoresponder is not responding when trigger words are used in chat.
+
+    **Solutions**:
+
+    - Check if the bot has "Send Messages" permission in the channel
+    - Verify the trigger word is spelled correctly in your message
+    - Ensure the autoresponder is properly configured using `/autoresponder config`
+    - Check if the trigger type matches your message format
+    - Confirm the bot is online and functioning
+  </Accordion>
+  <Accordion title="Variables not working - Placeholders showing as text">
+    **Issue**: Variables like `<<user:name>>` or `<<server:name>>` are displaying as plain text instead of actual values.
+
+    **Solutions**:
+
+    - Ensure proper variable syntax using `<<variable>>` format
+    - Check for typos in variable names (e.g., `<<user:name>>` not `<<username>>`)
+    - Verify you're using supported variables only
+    - Make sure there are no extra spaces inside the angle brackets
+    - Test with a simple variable like `<<user:name>>` first
+  </Accordion>
+  <Accordion title="Auto-delete failing - Messages not being removed automatically">
+    **Issue**: Autoresponder messages with auto-delete enabled are not being removed after the specified time.
+
+    **Solutions**:
+
+    - Verify the bot has "Manage Messages" permission in the channel
+    - Check if the auto-delete time is within the valid range (5-60 seconds)
+    - Ensure the message hasn't already been manually deleted
+    - Confirm the bot's role hierarchy allows message management
+    - Test with a longer auto-delete time to rule out timing issues
+  </Accordion>
+  <Accordion title="Embed not displaying - Response appears as plain text">
+    **Issue**: Autoresponder messages are showing as plain text instead of rich embeds.
+
+    **Solutions**:
+
+    - Confirm the bot has "Embed Links" permission in the channel
+    - Check if the autoresponder was configured as an embed (not plain text)
+    - Verify the embed content is properly formatted
+    - Ensure the channel allows embeds (some channels may have restrictions)
+    - Review embed builder configuration for any formatting errors
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  If the bot lacks proper permissions in channels, autoresponders will fail to trigger. Ensure the bot has necessary permissions across all channels where you want autoresponders to work.
+</Warning>
