@@ -1,0 +1,193 @@
+---
+title: "Temporary Voice Channels"
+description: "Create temporary voice channels which can be customized to your liking. The interface channel contains an embed with buttons that allow members to customize their temporary voice channel, while the Join to Create channel automatically generates new channels."
+---
+
+## Temporary Voice Channels Overview
+
+The temporary voice channels system allows members to create their own customizable voice channels on-demand. When users join the **Join to Create** channel, a new temporary voice channel is automatically created for them with full customization options.
+
+### How It Works
+
+<Steps>
+  <Step title="Join to Create">
+    Members join a designated voice channel to trigger creation
+  </Step>
+  <Step title="Auto-Creation">
+    A new temporary voice channel is instantly created for the user
+  </Step>
+  <Step title="Interface Control">
+    Members use an interface channel with buttons to customize their channel
+  </Step>
+  <Step title="Auto-Deletion">
+    Temporary channels are automatically deleted when empty
+  </Step>
+</Steps>
+
+## System Setup
+
+### Quick Setup Interface
+
+Configure the entire temporary voice system with an interactive setup interface.
+
+```Unspecified Example
+/tempvoice setup
+```
+
+### Viewing Commands
+
+Displays all the available commands of tempvoice system.
+
+```Unspecified Example
+/tempvoice guide
+```
+
+### Showing Active Channels
+
+Shows main join to create channel and interface channel.
+
+```Unspecified Example
+/tempvoice show
+```
+
+### Resetting the System
+
+Completely reset the temporary voice system and remove all configurations.
+
+```Unspecified Example
+/tempvoice reset
+```
+
+## System Components
+
+### Interface Channel
+
+The interface channel contains an embed with customization buttons that allow channel owners to modify their temporary voice channels. **This channel should be locked** to keep the embed message visible at the top.
+
+<Frame>
+  <img
+    src="/images/tempvoiceinterface.png"
+    style={{ width:"100%" }}
+    className="mx-auto"
+    alt="Temporary Voice Interface"
+    title=""
+  />
+</Frame>
+
+**Available Controls:**
+
+- Channel name editing
+- User limit adjustment
+- Privacy/lock settings
+- User permissions management
+- Channel visibility options
+
+### Join to Create Channel
+
+The **Join to Create** channel is where members join to automatically create their temporary voice channel. This channel is **required** for the VoiceMaster system to function properly.
+
+**Features:**
+
+- Automatic channel creation on join
+- Instant ownership assignment
+- Auto-deletion when empty
+
+## Integration with Voice Roles
+
+You can configure [Voice Roles](/serverconfig/roles/voicerole) to automatically assign roles to members when they join any voice channel, including temporary ones.
+
+<CodeGroup>
+
+```Unspecified Voice Roles Setup
+/invc humans @In-Voice
+```
+
+
+```Unspecified Result
+Members get @In-Voice role when joining temporary channels
+```
+
+</CodeGroup>
+
+## Use Cases & Examples
+
+<CardGroup cols={2}>
+  <Card title="Gaming Communities">
+    Create private gaming sessions with custom names, tournament channels with user limits, and clan meetings with restricted access
+  </Card>
+  <Card title="Study Groups">
+    Set up private study rooms for focused learning, group project spaces, and tutoring sessions with controlled access
+  </Card>
+  <Card title="Social Hangouts">
+    Personalized channels for friend groups, temporary event planning spaces, and themed hobby discussions
+  </Card>
+  <Card title="Professional Teams">
+    Quick meeting rooms, project collaboration spaces, and department-specific channels with automatic cleanup
+  </Card>
+</CardGroup>
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Channels not creating - Join to Create not working">
+    **Issue**: Members join the Join to Create channel but no temporary channel is created.
+
+    **Solutions**:
+
+    - Verify the bot has "Manage Channels" permission in the server
+    - Ensure the bot has "Move Members" permission to move users to new channels
+    - Check if the Join to Create channel is properly configured in settings
+    - Confirm the bot's role is high enough in hierarchy to create channels
+    - Test with a different user to rule out user-specific issues
+  </Accordion>
+  <Accordion title="Interface not responding - Buttons not working">
+    **Issue**: The interface embed buttons are not responding when clicked.
+
+    **Solutions**:
+
+    - Verify the interface channel is properly set up using `?tempvoice show`
+    - Check if the embed message still exists and hasn't been deleted
+    - Ensure the bot has "Send Messages" and "Embed Links" permissions in interface channel
+    - Confirm the user owns a temporary voice channel before using interface
+    - Try refreshing Discord or using the interface from a different device
+  </Accordion>
+  <Accordion title="Channels not deleting - Empty channels remain">
+    **Issue**: Temporary voice channels are not being automatically deleted when empty.
+
+    **Solutions**:
+
+    - Verify the bot is monitoring voice state changes properly
+    - Check if the bot has "Manage Channels" permission to delete channels
+    - Ensure the bot is online and functioning when users leave channels
+    - Confirm no other bots or systems are keeping the channels active
+    - Test by creating and leaving a temporary channel to verify auto-deletion
+  </Accordion>
+  <Accordion title="Permission errors - Users can't customize channels">
+    **Issue**: Channel owners cannot modify their temporary voice channels through the interface.
+
+    **Solutions**:
+
+    - Verify the bot has necessary permissions (Manage Channels, Manage Permissions)
+    - Check if the user is the actual owner of the temporary channel
+    - Ensure the bot's role hierarchy allows channel management
+    - Confirm the temporary channel hasn't been manually modified by administrators
+    - Test interface controls one by one to identify specific permission issues
+  </Accordion>
+  <Accordion title="Interface channel issues - Embed getting buried or deleted">
+    **Issue**: The interface embed message is not visible or gets pushed down by other messages.
+
+    **Solutions**:
+
+    - Lock the interface channel to prevent members from sending messages
+    - Remove unnecessary permissions for @everyone in the interface channel
+    - Pin the interface embed message if it gets buried
+    - Consider using a dedicated category for temporary voice system channels
+    - Regularly monitor and maintain the interface channel organization
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  The Join to Create channel is essential for the system to function. Ensure the bot has "Manage Channels" and "Move Members" permissions, and keep the interface channel locked to maintain the embed visibility.
+</Warning>
