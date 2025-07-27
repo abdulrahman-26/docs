@@ -23,8 +23,14 @@
           {
             "group": "Server Configurations",
             "pages": [
-              "serverconfig/messages/welcome",
-              "serverconfig/messages/boost"
+              {
+                "group": "Messages",
+                "icon": "message-circle",
+                "pages": [
+                  "serverconfig/messages/welcome",
+                  "serverconfig/messages/boost"
+                ]
+              }
             ]
           },
           {
