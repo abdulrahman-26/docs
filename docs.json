@@ -25,7 +25,7 @@
             "pages": [
               {
                 "group": "Messages",
-                "icon": "message-circle",
+                "icon": "message",
                 "pages": [
                   "serverconfig/messages/welcome",
                   "serverconfig/messages/boost"

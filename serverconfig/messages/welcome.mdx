@@ -1,4 +1,133 @@
 ---
-title: "Welcome Message"
-description: "Description of your new file."
+title: "Welcome System"
+description: "The welcome system allows you to customize welcome messages for new members using dynamic embeds, multiple templates, and timed auto-deletion. You can create multiple welcome setups with unique IDs and assign them to different channels or modify them at any time."
 ---
+
+## Welcome Message Setup
+
+### Creating a Welcome Message
+
+Use the create command to register a new welcome message by assigning it an ID and a target channel.
+It instantly opens a visual editor interface to customize your welcome message, as shown below:
+
+<CodeGroup>
+
+```Unspecified Example
+/welcome create (welcome_id) (channel)
+```
+
+
+```Unspecified Syntax
+/welcome create main #general
+```
+
+</CodeGroup>
+
+![Welcome Builder Interface](/images/welcomeembed.png)
+
+<Tip>
+  To understand each button (e.g., **Content**, **Title**, **Footer**, etc.) and how variables work, visit the [Embed Builder](/link/to/embed-docs) page. _(Coming soon\!)_
+</Tip>
+
+---
+
+### Editing a Welcome Embed
+
+Modify an existing welcome embed using its ID. This re-opens the same interactive embed editor.
+
+<CodeGroup>
+
+```Unspecified Example
+/welcome edit (welcome_id)
+```
+
+
+```Unspecified Syntax
+/welcome edit main
+```
+
+</CodeGroup>
+
+### Removing a Welcome Message
+
+Delete a specific welcome setup using its ID.
+
+<CodeGroup>
+
+```Unspecified Example
+/welcome remove (welcome_id)
+```
+
+
+```Unspecified Syntax
+/welcome remove main
+```
+
+</CodeGroup>
+
+### Changing the Welcome Channel
+
+Change the target channel of a welcome embed using its ID.
+
+<CodeGroup>
+
+```Unspecified Example
+/welcome channel (welcome_id) (channel)
+```
+
+
+```Unspecified Syntax
+/welcome channel main #welcome
+```
+
+</CodeGroup>
+
+### Enabling Auto-Delete
+
+Set a time (between **5–60 seconds**) to automatically delete the welcome message after it is sent.
+
+<CodeGroup>
+
+```Unspecified Example
+/welcome autodel (welcome_id) (time)
+```
+
+
+```Unspecified Syntax
+/welcome autodel main 30
+```
+
+</CodeGroup>
+
+### Testing a Welcome Message
+
+Send a test welcome message to preview the selected configuration.
+
+<CodeGroup>
+
+```Unspecified Example
+/welcome test (welcome_id)
+```
+
+
+```Unspecified Syntax
+/welcome test main
+```
+
+</CodeGroup>
+
+### Viewing All Welcome Configurations
+
+List all active welcome message setups for your server.
+
+```Unspecified Example
+/welcome show
+```
+
+### Resetting the Welcome System
+
+Completely reset and remove all welcome setups.
+
+```Unspecified Example
+/welcome reset
+```
