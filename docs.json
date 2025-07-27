@@ -21,6 +21,12 @@
             ]
           },
           {
+            "group": "Server Configurations",
+            "pages": [
+              "serverconfig/messages/welcome"
+            ]
+          },
+          {
             "group": "Security Setup",
             "pages": [
               "securitysetup/antinuke"
