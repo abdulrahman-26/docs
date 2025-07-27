@@ -30,7 +30,7 @@ Initially, only the server **owner** can configure the antinuke. However, you ca
 For a quick and simple antinuke setup with an easy interface, you can use this command.
 
 ```Unspecified Example
-?antinuke iterface
+/antinuke iterface
 ```
 
 ### Enabling the antinuke
@@ -38,7 +38,7 @@ For a quick and simple antinuke setup with an easy interface, you can use this c
 You can enable antinuke system by using enable command.
 
 ```Unsepcified Example
-?antinuke enable
+/antinuke enable
 ```
 
 ### Disabling the antinuke
@@ -46,7 +46,7 @@ You can enable antinuke system by using enable command.
 You can disable the antinuke system by using disable command.
 
 ```Unsepcified Example
-?antinuke disable
+/antinuke disable
 ```
 
 ### Changing the punishment
@@ -59,7 +59,7 @@ The punishment which will be applied to the moderator.
 - Roles Removed \+ Timeout
 
 ```Unspecified Example
-?antinuke punishment
+/antinuke punishment
 ```
 
 ### Viewing the antinuke configuration
@@ -67,9 +67,11 @@ The punishment which will be applied to the moderator.
 You can view the antinuke configurations by using show command.
 
 ```Unspecified Example
-?antinuke show
+/antinuke show
 ```
+
 ## Configuring the Whitelist System
+
 ### Exempting users from the antinuke
 
 You can exempt users from the selected or all antinuke events with the antinuke whitelist add command.
@@ -81,12 +83,12 @@ You can exempt users from the selected or all antinuke events with the antinuke 
 <CodeGroup>
 
 ```Unspecified Example
-?antinuke whitelist add (user)
+/antinuke whitelist add (user)
 ```
 
 
 ```Unspecified Syntax
-?antinuke whitelist add @freycikkk
+/antinuke whitelist add @freycikkk
 ```
 
 </CodeGroup>
@@ -98,12 +100,12 @@ You can remove the exempted users from specific or all antinuke events with the 
 <CodeGroup>
 
 ```Unspecified Example
-?antinuke whitelist remove (user)
+/antinuke whitelist remove (user)
 ```
 
 
 ```Unspecified Syntax
-?antinuke whitelist remove @freycikkk
+/antinuke whitelist remove @freycikkk
 ```
 
 </CodeGroup>
@@ -113,7 +115,7 @@ You can remove the exempted users from specific or all antinuke events with the 
 You can view the expemted users by using whitelist show command.
 
 ```Unspecified Example
-?antinuke whitelist show
+/antinuke whitelist show
 ```
 
 ### Removing all the exempted users
@@ -121,7 +123,7 @@ You can view the expemted users by using whitelist show command.
 You can remove all expemted users by using whitelist reset command.
 
 ```Unspecified Example
-?antinuke whitelist reset
+/antinuke whitelist reset
 ```
 
 ### Exempting roles from the antinuke
@@ -135,12 +137,12 @@ You can exempt roles from the selected or all antinuke events with the antinuke 
 <CodeGroup>
 
 ```Unspecified Example
-?antinuke role add (role)
+/antinuke role add (role)
 ```
 
 
 ```Unspecified Syntax
-?antinuke role add @admin
+/antinuke role add @admin
 ```
 
 </CodeGroup>
@@ -152,12 +154,12 @@ You can remove the exempted roles from specific or all antinuke events with the 
 <CodeGroup>
 
 ```Unspecified Example
-?antinuke role remove (role)
+/antinuke role remove (role)
 ```
 
 
 ```Unspecified Syntax
-?antinuke role remove @admin
+/antinuke role remove @admin
 ```
 
 </CodeGroup>
@@ -167,13 +169,73 @@ You can remove the exempted roles from specific or all antinuke events with the 
 You can view the expemted roles by using role show command.
 
 ```Unspecified Example
-?antinuke role show
+/antinuke role show
 ```
 
-### Removing all the exempted users
+### Removing all the exempted roles
 
 You can remove all expemted roles by using role reset command.
 
 ```Unspecified Example
-?antinuke role reset
+/antinuke role reset
+```
+
+## Preventing False Punishments from Onboarding Roles
+
+When a user joins a server and goes through Discord's onboarding, they may receive roles by themselves. In the audit log, this appears as if the user assigned the role manually, which can **trigger the anti member update event** and lead to **false punishment**.
+
+To prevent this, you can whitelist onboarding roles. These roles will be ignored by the antinuke system even if a user takes them on their own.
+
+<Warning>
+  Only add roles to this whitelist if they are assigned via **onboarding**. This ensures genuine user actions aren't misinterpreted as malicious.
+</Warning>
+
+### Adding an Onboarding Role
+
+Add a role that is assigned through onboarding to prevent it from triggering antinuke actions.
+
+<CodeGroup>
+
+```Unspecified Example
+/antinuke onboarding add (role)
+```
+
+
+```Unspecified Syntax
+/antinuke onboarding add @male
+```
+
+</CodeGroup>
+
+### Removing an Onboarding Role
+
+Remove a role from the onboarding whitelist to make it monitored again by the antinuke system.
+
+<CodeGroup>
+
+```Unspecified Example
+/antinuke onboarding remove (role)
+```
+
+
+```Unspecified Syntax
+/antinuke onboarding remove @male
+```
+
+</CodeGroup>
+
+### Viewing All Whitelisted Onboarding Roles
+
+List all roles that are currently whitelisted in the onboarding system.
+
+```Unspecified Example
+/antinuke onboarding show
+```
+
+### Resetting All Onboarding Roles
+
+Remove **all** onboarding roles from the whitelist at once.
+
+```Unspecified Example
+/antinuke onboarding reset
 ```
