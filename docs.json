@@ -39,7 +39,7 @@
               "serverconfig/roles/autorole",
               "serverconfig/roles/customrole",
               "serverconfig/roles/connectionrole",
-              "serverconfig/roles/vcrole"
+              "serverconfig/roles/voicerole"
             ]
           }        ]
       },
