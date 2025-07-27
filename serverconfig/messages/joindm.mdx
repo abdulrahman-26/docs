@@ -1,0 +1,140 @@
+---
+title: "JoinDM System"
+description: "The JoinDM system allows you to send personalized direct messages to new members when they join your server. Create custom welcome DMs with dynamic variables, auto-deletion, and easy management tools."
+---
+
+## JoinDM Message Setup
+
+### Setting Up JoinDM Messages
+
+Use the setup command to configure and customize your JoinDM message for new members.
+It instantly opens a visual editor interface to customize your direct message, similar to the welcome embed system.
+
+<CodeGroup>
+
+```Unspecified Example
+/joindm setup
+```
+
+</CodeGroup>
+
+<Frame>
+  <img
+    src="/images/joindm.png"
+    style={{ width:"100%" }}
+    className="mx-auto"
+    alt="JoinDM Message Builder"
+    title=""
+  />
+</Frame>
+
+<Tip>
+  To understand each button (e.g., **Content**, **Title**, **Footer**, etc.) and how variables work, visit the [Embed Builder](/link/to/embed-docs) page. _(Coming soon\!)_
+</Tip>
+
+### Viewing JoinDM Configuration
+
+Display the current JoinDM configuration and settings for your server.
+
+```Unspecified Example
+/joindm guide
+```
+
+### Enabling Auto-Delete
+
+Set a time (between **5–60 seconds**) to automatically delete the DM message after it is sent to the user.
+
+<CodeGroup>
+
+```Unspecified Example
+/joindm autodel (time)
+```
+
+
+```Unspecified Syntax
+/joindm autodel 60
+```
+
+</CodeGroup>
+
+### Testing a JoinDM Message
+
+Send a test JoinDM message to yourself to preview the current configuration.
+
+```Unspecified Example
+/joindm test
+```
+
+### Resetting the JoinDM System
+
+Completely reset and remove the JoinDM configuration.
+
+```Unspecified Example
+/joindm reset
+```
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="DM not sending - Messages aren't being delivered">
+    **Issue**: JoinDM messages are not being sent to new members when they join the server.
+
+    **Solutions**:
+
+    - Check if new members have DMs enabled from server members
+    - Verify the bot is online and functioning properly
+    - Ensure the JoinDM system is properly enabled and configured
+    - Check if the user has blocked the bot or disabled DMs
+    - Test with an alternate account to confirm functionality
+  </Accordion>
+  <Accordion title="Variables not working - Placeholders showing as text">
+    **Issue**: Variables like `<<user:name>>` or `<<server:name>>` are displaying as plain text instead of actual values.
+
+    **Solutions**:
+
+    - Ensure proper variable syntax using `<<variable>>` format
+    - Check for typos in variable names (e.g., `<<user:name>>` not `{username}`)
+    - Verify you're using supported variables only
+    - Make sure there are no extra spaces inside the brackets
+    - Test with a simple variable like `<<user:name>>` first
+  </Accordion>
+  <Accordion title="Auto-delete failing - Messages not being removed automatically">
+    **Issue**: JoinDM messages with auto-delete enabled are not being removed after the specified time.
+
+    **Solutions**:
+
+    - Verify the auto-delete time is within the valid range (5-300 seconds)
+    - Check if the user has deleted the DM conversation
+    - Ensure the user hasn't left the server before auto-delete triggers
+    - Test with a longer auto-delete time to rule out timing issues
+    - Remember that deleted DM conversations cannot be auto-deleted
+  </Accordion>
+  <Accordion title="Embed not displaying - JoinDM appears as plain text">
+    **Issue**: JoinDM messages are showing as plain text instead of rich embeds.
+
+    **Solutions**:
+
+    - Confirm the JoinDM message was configured as an embed (not plain text)
+    - Verify the embed content is properly formatted
+    - Check if the user's client supports embeds in DMs
+    - Test the embed using `/joindm test` command
+    - Ensure embed content doesn't exceed Discord's character limits
+  </Accordion>
+  <Accordion title="Privacy concerns - Users complaining about unsolicited DMs">
+    **Issue**: New members are concerned about receiving direct messages from the bot.
+
+    **Solutions**:
+
+    - Consider adding a notice in your welcome channel about JoinDM messages
+    - Keep JoinDM messages helpful and informative, not promotional
+    - Provide clear instructions on how users can disable DMs if desired
+    - Make sure your server rules mention automated DM messages
+    - Consider using auto-delete to reduce DM clutter
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  JoinDM messages are sent directly to users and cannot be controlled by channel permissions. Ensure your messages are welcoming and informative to avoid being perceived as spam.
+</Warning>
