@@ -55,7 +55,7 @@
             "group": "LeaderBoards",
             "icon": "stats",
             "pages": [
-              "serverconfig/stats/message-ld",
+              "serverconfig/stats/message-lb",
               "serverconfig/stats/voice-lb"
             ]
           },
