@@ -30,14 +30,14 @@ Initially, only the server **owner** can configure the antinuke. However, you ca
 For a quick and simple antinuke setup with an easy interface, you can use this command.
 
 ```Unspecified Example
-/antinuke iterface
+/antinuke interface
 ```
 
 ### Enabling the antinuke
 
 You can enable antinuke system by using enable command.
 
-```Unsepcified Example
+```Unspecified Example
 /antinuke enable
 ```
 
@@ -239,3 +239,49 @@ Remove **all** onboarding roles from the whitelist at once.
 ```Unspecified Example
 /antinuke onboarding reset
 ```
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="False Positives - Legitimate actions trigger antinuke">
+    **Issue**: The antinuke system is punishing users for legitimate server management actions.
+
+    **Solutions**:
+
+    - Adjust the action limits to be more appropriate for your server's activity level
+    - Whitelist trusted moderators and administrators
+    - Add frequently used roles to the role whitelist
+  </Accordion>
+  <Accordion title="Not Triggering - Dangerous actions aren't being caught">
+    **Issue**: The antinuke system is not detecting or responding to potentially harmful actions.
+
+    **Solutions**:
+
+    - Verify that the antinuke system is enabled using `/antinuke show`
+    - Check if the user performing actions is whitelisted
+    - Ensure the action limits aren't set too high
+    - Confirm the bot has proper permissions to monitor server events
+    - Review which events are being monitored in your configuration
+  </Accordion>
+  <Accordion title="Permission Errors - Bot can't apply punishments">
+    **Issue**: The bot fails to punish violating users due to insufficient permissions.
+
+    **Solutions**:
+
+    - Ensure the bot's role is positioned higher than the target user's highest role
+    - Grant the bot necessary permissions (Ban Members, Kick Members, Manage Roles)
+    - Check if the target user is the server owner (cannot be punished)
+    - Verify the bot has permissions in the channel where notifications are sent
+  </Accordion>
+  <Accordion title="Onboarding Role Issues - New members getting falsely punished">
+    **Issue**: Users joining through Discord's onboarding system trigger antinuke when receiving roles.
+
+    **Solutions**:
+
+    - Add onboarding roles to the whitelist using `/antinuke onboarding add`
+    - Review your member update limits and adjust if necessary
+    - Ensure you understand which roles are assigned through onboarding vs. manually
+  </Accordion>
+</AccordionGroup>

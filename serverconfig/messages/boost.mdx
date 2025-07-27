@@ -1,4 +1,198 @@
 ---
-title: "Boost Message"
-description: "Description of your new file."
+title: "Boost System"
+description: "The boost system allows you to send automatic embed messages whenever someone boosts your server. You can create multiple boost messages with unique IDs, customize them, and choose specific channels to display them. Auto-delete and test features are also supported."
 ---
+
+## Boost Message Setup
+
+### Creating a Boost Message
+
+Use this command to create a new boost message by giving it a unique ID and selecting a target channel.\
+It instantly opens a visual editor interface to customize your boost message, as shown below:
+
+<CodeGroup>
+
+```Unspecified Example
+/boost create (boost_id) (channel)
+```
+
+
+```Unspecified Syntax
+/boost create main #boosts
+```
+
+</CodeGroup>
+
+<Frame>
+  <img
+    src="/images/boostembed.png"
+    style={{ width:"100%" }}
+    className="mx-auto"
+    alt="Boost Embed Builder"
+    title=""
+  />
+</Frame>
+
+<Tip>
+  To understand each button (e.g., **Content**, **Title**, **Footer**, etc.) and how variables work, visit the [Embed Builder](/link/to/embed-docs) page. _(Coming soon\!)_
+</Tip>
+
+### Editing a Boost Embed
+
+Edit the boost embed using its ID. This opens the visual embed builder, allowing you to customize the message.
+
+<CodeGroup>
+
+```Unspecified Example
+/boost edit (boost_id)
+```
+
+
+```Unspecified Syntax
+/boost edit main
+```
+
+</CodeGroup>
+
+### Removing a Boost Message
+
+Delete a specific boost setup using its ID.
+
+<CodeGroup>
+
+```Unspecified Example
+/boost remove (boost_id)
+```
+
+
+```Unspecified Syntax
+/boost remove main
+```
+
+</CodeGroup>
+
+### Changing the Boost Channel
+
+Change the channel where a specific boost embed will be sent.
+
+<CodeGroup>
+
+```Unspecified Example
+/boost channel (boost_id) (channel)
+```
+
+
+```Unspecified Syntax
+/boost channel main #boosts
+```
+
+</CodeGroup>
+
+### Enabling Auto-Delete
+
+Automatically delete the boost message after a set time (between **5–60 seconds**).
+
+<CodeGroup>
+
+```Unspecified Example
+/boost autodel (boost_id) (time)
+```
+
+
+```Unspecified Syntax
+/boost autodel main 30
+```
+
+</CodeGroup>
+
+### Testing a Boost Message
+
+Send a test boost message to preview your configured embed.
+
+<CodeGroup>
+
+```Unspecified Example
+/boost test (boost_id)
+```
+
+
+```Unspecified Syntax
+/boost test main
+```
+
+</CodeGroup>
+
+### Viewing All Boost Configurations
+
+Show all boost message setups currently active in your server.
+
+```Unspecified Example
+/boost show
+```
+
+### Resetting the Boost System
+
+Remove **all** configured boost messages and reset the system.
+
+```Unspecified Example
+/boost reset
+```
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Message not sending - Boost messages aren't being delivered">
+    **Issue**: Boost messages are not appearing when members boost the server.
+
+    **Solutions**:
+
+    - Check if the bot has "Send Messages" permission in the target channel
+    - Verify the bot can "View Channel" where boost messages should be sent
+    - Ensure the boost system is properly enabled and configured
+    - Confirm the target channel still exists and hasn't been deleted
+    - Check if the bot is offline or experiencing connectivity issues
+    - Verify the boost message ID is correctly configured
+  </Accordion>
+  <Accordion title="Variables not working - Placeholders showing as text">
+    **Issue**: Variables like `<<user:name>>` or `<<server:name>>` are displaying as plain text instead of actual values.
+
+    **Solutions**:
+
+    - Ensure proper variable syntax using `<<variable>>` format
+    - Check for typos in variable names (e.g., `<<user:name>>` not `<<username>>`)
+    - Verify you're using supported variables only
+    - Make sure there are no extra spaces inside the angle brackets
+    - Test with a simple variable like `<<user:name>>` first
+    - Confirm the variable is supported in boost messages
+  </Accordion>
+  <Accordion title="Auto-delete failing - Messages not being removed automatically">
+    **Issue**: Boost messages with auto-delete enabled are not being removed after the specified time.
+
+    **Solutions**:
+
+    - Verify the bot has "Manage Messages" permission in the target channel
+    - Check if the auto-delete time is within the valid range (5-60 seconds)
+    - Ensure the message hasn't already been manually deleted
+    - Confirm the bot's role hierarchy allows message management
+    - Test with a longer auto-delete time to rule out timing issues
+    - Verify auto-delete is properly configured for the specific boost ID
+  </Accordion>
+  <Accordion title="Embed not displaying - Boost appears as plain text">
+    **Issue**: Boost messages are showing as plain text instead of rich embeds.
+
+    **Solutions**:
+
+    - Confirm the bot has "Embed Links" permission in the target channel
+    - Check if the boost message was configured as an embed (not plain text)
+    - Verify the embed content is properly formatted
+    - Ensure the channel allows embeds (some channels may have restrictions)
+    - Test the embed using `/boost test` command with the specific boost ID
+    - Review embed builder configuration for any formatting errors
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  If the bot lacks proper permissions in the target channel, the boost message will fail. Ensure the bot has necessary permissions before creating boost messages.
+</Warning>

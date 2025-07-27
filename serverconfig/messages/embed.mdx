@@ -1,0 +1,89 @@
+---
+title: "Embed Generator"
+description: "Create custom embeds and send them to any channel using our built-in embed builder. Design professional-looking messages with rich formatting, images, and interactive elements."
+---
+
+## Embed Message Creation
+
+### Creating a Custom Embed
+
+Use this command to open the interactive visual embed builder where you can design your custom embed message.
+
+<CodeGroup>
+
+```Unspecified Example
+/embed create
+```
+
+</CodeGroup>
+
+<Frame>
+  <img
+    src="/images/embedbuilder.png"
+    style={{ width:"100%" }}
+    className="mx-auto"
+    alt="Embed Builder Interface"
+    title=""
+  />
+</Frame>
+
+<Tip>
+  The embed builder provides a real-time preview of your embed as you customize it. You can modify the title, description, color, fields, footer, and more through the intuitive interface.
+</Tip>
+
+## How It Works
+
+The embed creation process follows these simple steps:
+
+1. **Command Execution**: User types `/embed create`
+2. **Builder Interface**: The bot opens an interactive embed builder with visual controls
+3. **Customization**: User designs their embed using the available options (title, description, fields, colors, etc.)
+4. **Save & Send**: Once the user presses **Save**, the bot prompts for destination
+5. **Channel Selection**: Bot asks for channel. Please mention a channel or provide its ID
+6. **Delivery**: User replies with a valid channel mention or ID, and the bot sends the embed
+
+### Channel Selection Options
+
+When prompted for the destination channel, you can respond with:
+
+- Channel mention: `#general`
+- Channel ID: `123456789012345678`
+
+<CodeGroup>
+
+```Unspecified Channel Mention
+#announcements
+```
+
+
+```Unspecified Channel ID
+987654321098765432
+```
+
+</CodeGroup>
+
+## Advanced Features
+
+### Embed Components
+
+<Tip>
+  To understand each component (e.g., **Content**, **Title**, **Footer**, etc.) and how variables work, visit the [Embed Builder](/link/to/embed-docs) page. _(Coming soon\!)_
+</Tip>
+
+### Formatting Support
+
+Your embeds support rich text formatting including:
+
+- **Bold text** using `**text**`
+- _Italic text_ using `*text*`
+- `Code blocks` using backticks
+- [Hyperlinks](https://example.com) using `[text](url)`
+- Line breaks and spacing
+
+<Note>
+  Embeds have character limits: titles (256 characters), descriptions (4096 characters), and field values (1024 characters). The builder will warn you if you exceed these limits.
+</Note>
+
+<Warning>
+  If the bot lacks proper permissions in the target channel, the embed creation will fail. Ensure the bot has necessary permissions before creating embeds.
+</Warning>

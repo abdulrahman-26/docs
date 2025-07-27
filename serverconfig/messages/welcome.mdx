@@ -23,13 +23,19 @@ It instantly opens a visual editor interface to customize your welcome message, 
 
 </CodeGroup>
 
-![Welcome Builder Interface](/images/welcomeembed.png)
+<Frame>
+  <img
+    src="/images/welcomeembed.png"
+    style={{ width:"100%" }}
+    className="mx-auto"
+    alt="Welcome Embed Builder"
+    title=""
+  />
+</Frame>
 
 <Tip>
   To understand each button (e.g., **Content**, **Title**, **Footer**, etc.) and how variables work, visit the [Embed Builder](/link/to/embed-docs) page. _(Coming soon\!)_
 </Tip>
-
----
 
 ### Editing a Welcome Embed
 
@@ -131,3 +137,58 @@ Completely reset and remove all welcome setups.
 ```Unspecified Example
 /welcome reset
 ```
+
+## Troubleshooting
+
+### Common Issues
+
+<AccordionGroup>
+  <Accordion title="Welcome not sending - Messages aren't being delivered">
+    **Issue**: Welcome messages are not appearing when new members join the server.
+
+    **Solutions**:
+
+    - Check if the bot has "Send Messages" permission in the target channel
+    - Verify the bot can "View Channel" where welcome messages should be sent
+    - Ensure the welcome system is properly enabled and configured
+    - Confirm the target channel still exists and hasn't been deleted
+    - Check if the bot is offline or experiencing connectivity issues
+  </Accordion>
+  <Accordion title="Variables not working - Placeholders showing as text">
+    **Issue**: Variables like `<<user:name>>` or `<<server:name>>` are displaying as plain text instead of actual values.
+
+    **Solutions**:
+
+    - Ensure proper variable syntax using `<<variable>>` format
+    - Check for typos in variable names (e.g., `<<user:name>>` not `{username}`)
+    - Verify you're using supported variables only
+    - Make sure there are no extra spaces inside the brackets
+    - Test with a simple variable like `<<user:name>>` first
+  </Accordion>
+  <Accordion title="Auto-delete failing - Messages not being removed automatically">
+    **Issue**: Welcome messages with auto-delete enabled are not being removed after the specified time.
+
+    **Solutions**:
+
+    - Verify the bot has "Manage Messages" permission in the target channel
+    - Check if the auto-delete time is within the valid range (5-60 seconds)
+    - Ensure the message hasn't already been manually deleted
+    - Confirm the bot's role hierarchy allows message management
+    - Test with a longer auto-delete time to rule out timing issues
+  </Accordion>
+  <Accordion title="Embed not displaying - Welcome appears as plain text">
+    **Issue**: Welcome messages are showing as plain text instead of rich embeds.
+
+    **Solutions**:
+
+    - Confirm the bot has "Embed Links" permission in the target channel
+    - Check if the welcome message was configured as an embed (not plain text)
+    - Verify the embed content is properly formatted
+    - Ensure the channel allows embeds (some channels may have restrictions)
+    - Test the embed using `/welcome test` command
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  If the bot lacks proper permissions in the target channel, the welcome message will fail. Ensure the bot has necessary permissions before creating welcome messages.
+</Warning>
