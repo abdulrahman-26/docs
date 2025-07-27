@@ -41,8 +41,7 @@
               "serverconfig/roles/connectionrole",
               "serverconfig/roles/voicerole"
             ]
-          }        ]
-      },
+          },
           {
             "group": "Extras",
             "icon": "message",
@@ -53,6 +52,8 @@
             ]
           },
           "serverconfig/tempvoice"
+        ]
+      },
       {
         "group": "Security Setup",
         "pages": [
