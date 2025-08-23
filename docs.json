@@ -2,6 +2,10 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
   "name": "Bumblebee Docs",
+  "appearance": {
+    "default": "dark",
+    "strict": true
+  },
   "colors": {
     "primary": "#F9A825",
     "light": "#F9A825",
@@ -88,6 +92,5 @@
       "href": "https://discord.gg/bumblebee"
     }
   },
-  "footer": {
-  }
+  "footer": {}
 }
