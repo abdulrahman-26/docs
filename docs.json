@@ -37,6 +37,7 @@
             "icon": "member",
             "pages": [
               "serverconfig/roles/autorole",
+              "serverconfig/roles/boosterrole",
               "serverconfig/roles/customrole",
               "serverconfig/roles/connectionrole",
               "serverconfig/roles/voicerole"
