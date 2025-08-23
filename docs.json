@@ -3,7 +3,7 @@
   "theme": "mint",
   "name": "Bumblebee Docs",
   "colors": {
-    "primary": "#FBC02D",
+    "primary": "#F9A825",
     "light": "#F9A825",
     "dark": "#F9A825"
   },
@@ -72,7 +72,7 @@
     ]
   },
   "logo": {
-    "light": "/logo/light.svg",
+    "light": "/logo/dark.svg",
     "dark": "/logo/dark.svg"
   },
   "navbar": {
