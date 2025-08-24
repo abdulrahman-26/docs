@@ -14,7 +14,7 @@ The Booster Role system allows server boosters to create and customize their own
     Boosters can create personalized roles with custom names, colors, and icons
   </Step>
   <Step title="Base Role Management">
-    Stack booster roles cleanly under a designated base role for organization
+    Stack booster roles cleanly above a designated base role for organization
   </Step>
   <Step title="Administrative Control">
     Comprehensive admin interface with blacklist management and configuration options
@@ -47,7 +47,7 @@ Access the comprehensive administrative control panel for managing the booster r
 
 <Frame>
   <img
-    src="/images/bradmin.png"
+    src="/bradmin"
     style={{ width:"100%" }}
     className="mx-auto"
     alt="Booster Role Admin Interface"
@@ -62,22 +62,21 @@ Access the comprehensive administrative control panel for managing the booster r
     **Enable/Disable** - Turn the entire booster role system on or off for your server
   </Card>
   <Card title="Base Role Interface">
-    **Base Role** - Set the role under which all booster roles will be positioned
-    **Hoist** - Control whether booster roles display separately in member lists
+    **Base Role** - Set the role above which all booster roles will be positioned
+    **Hoist** - Control whether booster roles display separately in member lists\
+    Logs - Monitor boosterrole events
   </Card>
   <Card title="Show Interface">
-    **Config** - Display current system configuration and settings
-    **List** - View all users with their custom booster roles
+    **Show** - Display current system configuration and settings **List** - View all users with their custom booster roles
   </Card>
   <Card title="Blacklist User Interface">
     **Add/Remove** - Manage users who cannot create booster roles
     **Show/Reset** - View or clear the blacklist entirely
   </Card>
+  <Card title="Reset Interface">
+    **Reset** - Completely reset the entire booster role module and configurations
+  </Card>
 </CardGroup>
-
-**Reset Interface:**
-
-- **Reset** - Completely reset the entire booster role module and configurations
 
 ## User Commands
 
@@ -91,7 +90,7 @@ Access the booster role creation and management interface for eligible members.
 
 <Frame>
   <img
-    src="/bruser.png"
+    src="/images/boosterrole-user.png"
     style={{ width:"100%" }}
     className="mx-auto"
     alt="Booster Role User Interface"
@@ -118,7 +117,7 @@ Create a new custom booster role with personalized settings.
 
 ```Unspecified Form Fields
 Name: "Epic Booster"
-Color: #ff6b6b
+Color: #ff6b6b (or color picker)
 Emoji: 🌟 (Level 2+ servers only)
 ```
 
@@ -132,13 +131,23 @@ Emoji: 🌟 (Level 2+ servers only)
 /boosterrole user → Edit
 ```
 
+
+```Unspecified Toggle Hoist
+/boosterrole user → Hoist
+```
+
+
+```Unspecified Delete Role
+/boosterrole user → Delete
+```
+
 </CodeGroup>
 
 ## System Features
 
 ### Base Role Support
 
-Keep your server organized with intelligent role stacking. All booster roles are positioned under your designated base role, maintaining hierarchy while giving boosters their custom appearance.
+Keep your server organized with intelligent role stacking. All booster roles are positioned above your designated base role, maintaining hierarchy while giving boosters their custom appearance.
 
 <Note>
   Set a base role to keep booster roles organized in your server's role list. This is especially useful for servers with extensive role systems.
@@ -233,7 +242,7 @@ For servers wanting tight control:
     Position base role carefully in your existing role structure
   </Step>
   <Step title="Monitoring">
-    Enable Logs → Monitor to regularly review created roles
+    Use Show Interface → List to regularly review created roles
   </Step>
   <Step title="Maintenance">
     Periodically check configurations and adjust blacklist as needed
@@ -260,10 +269,10 @@ For servers wanting tight control:
     **Solutions**:
 
     - Verify base role is properly set in Admin → Base Role Interface
-    - Check bot role hierarchy - bot must be above base role
+    - Check bot role hierarchy - bot must be above booster roles
     - Ensure base role exists and hasn't been deleted
     - Test base role positioning by creating a new booster role
-    - Review server role list to confirm proper stacking
+    - Review server role list to confirm proper stacking above base role
   </Accordion>
   <Accordion title="Icons not working - Server level restrictions">
     **Issue**: Boosters cannot add emoji icons to their custom roles.
@@ -322,7 +331,7 @@ For servers wanting tight control:
 ### Premium Integration
 
 <Note>
-  The Booster Role system works seamlessly with other premium features. Consider combining it with Voice Roles, Custom Roles, or other server configuration options for enhanced server experience.
+  The Booster Role system works seamlessly with other features. Consider combining it with Voice Roles, Custom Roles, or other server configuration options for enhanced server experience.
 </Note>
 
 <Warning>
